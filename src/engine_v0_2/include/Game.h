@@ -10,13 +10,14 @@
 #include "SFML/Graphics.hpp"
 #include "Player.h"
 #include "NonPlayer.h"
+#include "Level.h"
 #include <string>
 
 namespace ge {
 
     struct GameParameters{
-        unsigned int gameHeight;
         unsigned int gameWidth;
+        unsigned int gameHeight;
         std::string gameTitle;
         unsigned int joystick;
     };
@@ -24,9 +25,7 @@ namespace ge {
     class Game {
     public:
 
-        Game();
-
-        Game(const Game& orig);
+        Game( Level * level );
 
         virtual ~Game();
 
@@ -40,6 +39,7 @@ namespace ge {
         
         static GameParameters parameters;
         
+        
     private:
 
         Player * m_player;
@@ -49,6 +49,10 @@ namespace ge {
         sf::RenderWindow * m_window;
         
         std::vector<NonPlayer *> m_entities;
+        
+        Level * m_level;
+        
+        std::vector<Sequence *> m_activeSequences;
         
     };
 

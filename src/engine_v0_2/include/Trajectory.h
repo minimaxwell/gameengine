@@ -8,6 +8,8 @@
 #ifndef TRAJECTORY_H
 #define	TRAJECTORY_H
 
+#include "SFML/Graphics.hpp"
+
 namespace ge {
 
     class Trajectory {
@@ -15,10 +17,12 @@ namespace ge {
 
         Trajectory();
 
-        Trajectory(const Trajectory& orig);
-
         virtual ~Trajectory();
 
+        virtual sf::Vector2f movement(float elapsed) = 0;
+        
+        virtual Trajectory * clone() const = 0;
+        
     private:
 
     };

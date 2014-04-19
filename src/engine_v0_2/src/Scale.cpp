@@ -12,8 +12,6 @@ using namespace ge;
 Scale::Scale() {
 }
 
-Scale::Scale(const Scale& orig) {
-}
 
 Scale::~Scale() {
 }

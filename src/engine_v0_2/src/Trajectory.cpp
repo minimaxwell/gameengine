@@ -12,9 +12,6 @@ using namespace ge;
 Trajectory::Trajectory() {
 }
 
-Trajectory::Trajectory(const Trajectory& orig) {
-}
-
 Trajectory::~Trajectory() {
 }
 

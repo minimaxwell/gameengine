@@ -25,19 +25,19 @@ void Player::update( float elapsed ){
     }
     
     if(sf::Keyboard::isKeyPressed( sf::Keyboard::Z ) ){
-        deplacement.y = -speed * 60 * elapsed;
+        deplacement.y = -speed * elapsed;
     }
     
     if(sf::Keyboard::isKeyPressed( sf::Keyboard::S ) ){
-        deplacement.y = speed * 60 * elapsed;
+        deplacement.y = speed * elapsed;
     }
     
     if(sf::Keyboard::isKeyPressed( sf::Keyboard::Q ) ){
-        deplacement.x = -speed * 60 * elapsed;
+        deplacement.x = -speed * elapsed;
     }
     
     if(sf::Keyboard::isKeyPressed( sf::Keyboard::D ) ){
-        deplacement.x = speed * 60 * elapsed;
+        deplacement.x = speed * elapsed;
     }
     
     m_position += deplacement;
@@ -67,4 +67,6 @@ const sf::Shape * Player::shape() const{
         
 void Player::shape( sf::Shape * shape ){
     m_shape = shape;
+    m_shape->setPosition( m_position );
+    m_shape->setFillColor(  m_colorPoll[ m_currentColorIndex ].color() );
 }

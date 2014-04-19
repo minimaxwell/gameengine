@@ -12,9 +12,6 @@ using namespace ge;
 Rotation::Rotation() {
 }
 
-Rotation::Rotation(const Rotation& orig) {
-}
-
 Rotation::~Rotation() {
 }
 

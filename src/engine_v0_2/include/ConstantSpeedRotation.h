@@ -8,19 +8,25 @@
 #ifndef CONSTANTSPEEDROTATION_H
 #define	CONSTANTSPEEDROTATION_H
 
+#include "Rotation.h"
+
 namespace ge {
 
-    class ConstantSpeedRotation {
+    class ConstantSpeedRotation : public ::ge::Rotation {
     public:
 
-        ConstantSpeedRotation();
-
-        ConstantSpeedRotation(const ConstantSpeedRotation& orig);
+        ConstantSpeedRotation( float angularSpeed );
 
         virtual ~ConstantSpeedRotation();
 
+        float rotation(float elapsed);
+        
+        Rotation * clone() const;
+        
     private:
 
+        float m_angularSpeed;
+        
     };
 
 }

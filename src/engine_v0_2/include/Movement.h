@@ -8,6 +8,9 @@
 #ifndef MOVEMENT_H
 #define	MOVEMENT_H
 
+#include "Transformation.h"
+#include <map>
+
 namespace ge {
 
     class Movement {
@@ -19,8 +22,22 @@ namespace ge {
 
         virtual ~Movement();
 
+        sf::Transform movement(float elapsed);
+        
+        void addTransformation( int timestamp, Transformation * transformation );
+
+        void start() ;
+        
     private:
 
+        std::multimap<int, Transformation *> m_timeline;
+        
+        std::vector<Transformation *> m_currentTransformations;
+        
+        sf::Clock m_clock;
+        
+        bool m_started;
+        
     };
 
 }

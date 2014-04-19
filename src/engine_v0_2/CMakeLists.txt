@@ -5,7 +5,24 @@ set (PROJECT_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/include)
 set (PROJECT_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src)
  
 set(engine_v0_2_SRCS
+	${PROJECT_SOURCE_DIR}/Background.cpp
 	${PROJECT_SOURCE_DIR}/Color.cpp
+	${PROJECT_SOURCE_DIR}/ConstantSpeedRotation.cpp
+	${PROJECT_SOURCE_DIR}/ConstantSpeedScale.cpp
+	${PROJECT_SOURCE_DIR}/Game.cpp
+	${PROJECT_SOURCE_DIR}/Level.cpp
+	${PROJECT_SOURCE_DIR}/LinearTrajectory.cpp
+	${PROJECT_SOURCE_DIR}/Movement.cpp
+	${PROJECT_SOURCE_DIR}/NonPlayer.cpp
+	${PROJECT_SOURCE_DIR}/Player.cpp
+	${PROJECT_SOURCE_DIR}/RectangularNonPlayer.cpp
+	${PROJECT_SOURCE_DIR}/Rotation.cpp
+	${PROJECT_SOURCE_DIR}/Scale.cpp
+	${PROJECT_SOURCE_DIR}/Sequence.cpp
+	${PROJECT_SOURCE_DIR}/SinusoidalTrajectory.cpp
+	${PROJECT_SOURCE_DIR}/StarBackground.cpp
+	${PROJECT_SOURCE_DIR}/Trajectory.cpp
+	${PROJECT_SOURCE_DIR}/Transformation.cpp
 	${PROJECT_SOURCE_DIR}/Main.cpp
 	)
  

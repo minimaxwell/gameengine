@@ -8,19 +8,32 @@
 #ifndef STARBACKGROUND_H
 #define	STARBACKGROUND_H
 
+#include "Background.h"
+
+#include <vector>
+
 namespace ge {
 
-    class StarBackground {
+    class StarBackground : public ::ge::Background {
     public:
 
-        StarBackground();
-
-        StarBackground(const StarBackground& orig);
+        StarBackground( const sf::Vector2f& baseSpeed, unsigned int nbElements );
 
         virtual ~StarBackground();
 
+        void update(float elapsed);
+        
+        void draw( sf::RenderTarget& target, sf::RenderStates states ) const;
+        
+        void baseSpeed( const sf::Vector2f& baseSpeed );
+        
     private:
 
+        sf::Vector2f m_baseSpeed;
+        unsigned int m_nbElements;
+        std::vector<int> m_depths;
+        
+        sf::VertexArray m_vertices;
     };
 
 }

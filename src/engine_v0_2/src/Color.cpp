@@ -31,6 +31,7 @@ Color::Color( eColor baseColor, int fuzz ) : m_color( createColor( baseColor, fu
 Color::Color(const Color& orig) : m_color(orig.m_color), m_baseColor(orig.m_baseColor) {
 }
 
+
 Color::~Color() {
 }
 

@@ -12,9 +12,6 @@ using namespace ge;
 Background::Background() {
 }
 
-Background::Background(const Background& orig) {
-}
-
 Background::~Background() {
 }
 

@@ -7,7 +7,7 @@
 
 #ifndef SCALE_H
 #define	SCALE_H
-
+#include "SFML/Graphics.hpp"
 namespace ge {
 
     class Scale {
@@ -15,10 +15,12 @@ namespace ge {
 
         Scale();
 
-        Scale(const Scale& orig);
-
         virtual ~Scale();
 
+        virtual sf::Vector2f scale(float elapsed) = 0;
+        
+        virtual Scale * clone() const = 0;
+        
     private:
 
     };

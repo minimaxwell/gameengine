@@ -6,15 +6,26 @@
  */
 
 #include "SinusoidalTrajectory.h"
-
+#include<cmath>
 using namespace ge;
 
-SinusoidalTrajectory::SinusoidalTrajectory() {
-}
-
-SinusoidalTrajectory::SinusoidalTrajectory(const SinusoidalTrajectory& orig) {
+SinusoidalTrajectory::SinusoidalTrajectory( float angularSpeed, const sf::Vector2f& baseDirection, float initAngle ) : 
+                                            m_angularSpeed(angularSpeed), m_baseDirection(baseDirection), m_initAngle(initAngle), m_currentAngle(initAngle){
 }
 
 SinusoidalTrajectory::~SinusoidalTrajectory() {
 }
 
+sf::Vector2f SinusoidalTrajectory::movement(float elapsed){
+    float alpha = m_angularSpeed * elapsed;
+    
+    sf::Vector2f result( m_baseDirection.x * (cos( 3.1415926f * ( (m_currentAngle + alpha) / 180 ) )  - cos(  3.1415926f * ( m_currentAngle / 180 ) ) ),-m_baseDirection.y * ( cos( 3.1415926f * ( (m_currentAngle + alpha) / 180 ) )  - cos(  3.1415926f * ( m_currentAngle / 180 ) ) ) );
+
+    m_currentAngle += alpha;
+    
+    return result;
+}
+        
+Trajectory * SinusoidalTrajectory::clone() const{
+    return new SinusoidalTrajectory( m_angularSpeed , m_baseDirection, m_initAngle );
+}

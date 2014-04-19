@@ -8,19 +8,25 @@
 #ifndef CONSTANTSPEEDSCALE_H
 #define	CONSTANTSPEEDSCALE_H
 
+#include "Scale.h"
+
 namespace ge {
 
-    class ConstantSpeedScale {
+    class ConstantSpeedScale : ::ge::Scale {
     public:
 
-        ConstantSpeedScale();
-
-        ConstantSpeedScale(const ConstantSpeedScale& orig);
+        ConstantSpeedScale( float expansionSpeed );
 
         virtual ~ConstantSpeedScale();
 
+        sf::Vector2f scale(float elapsed);
+        
+        Scale * clone() const;
+        
     private:
 
+        float m_expansionSpeed;
+        
     };
 
 }

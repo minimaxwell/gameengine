@@ -15,10 +15,12 @@ namespace ge {
 
         Rotation();
 
-        Rotation(const Rotation& orig);
-
         virtual ~Rotation();
 
+        virtual float rotation(float elapsed) = 0;
+        
+        virtual Rotation * clone() const = 0;
+        
     private:
 
     };

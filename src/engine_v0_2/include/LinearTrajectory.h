@@ -8,19 +8,25 @@
 #ifndef LINEARTRAJECTORY_H
 #define	LINEARTRAJECTORY_H
 
+#include "Trajectory.h"
+
 namespace ge {
 
-    class LinearTrajectory {
+    class LinearTrajectory : public ::ge::Trajectory {
     public:
 
-        LinearTrajectory();
-
-        LinearTrajectory(const LinearTrajectory& orig);
+        LinearTrajectory( const sf::Vector2f& speedVector ) ;
 
         virtual ~LinearTrajectory();
 
+        sf::Vector2f movement(float elapsed);
+        
+        Trajectory * clone() const;
+        
     private:
 
+        sf::Vector2f m_speedVector;
+        
     };
 
 }
