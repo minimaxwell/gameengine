@@ -19,4 +19,4 @@ include_directories("${PROJECT_SOURCE_DIR}")
 
 
 
-add_subdirectory("src/project1")
+add_subdirectory("src/engine_v0_2")
