@@ -16,6 +16,9 @@ Game::Game( Level * level ) : m_level(level) {
 
 
 Game::~Game() {
+    delete m_level;
+    delete m_player;
+    delete m_window;
 }
 
 void Game::render() const{

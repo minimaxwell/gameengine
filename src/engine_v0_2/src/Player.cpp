@@ -13,6 +13,7 @@ Player::Player( const std::vector<ge::Color>& colorPoll, const sf::Vector2f& ini
 }
 
 Player::~Player() {
+    delete m_shape;
 }
 
 void Player::update( float elapsed ){

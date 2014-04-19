@@ -19,6 +19,7 @@ Level::Level(const Level& orig) : m_started(false) {
 }
 
 Level::~Level() {
+    delete m_background;
 }
 
 void Level::addSequence( int timestamp, Sequence * sequence ){

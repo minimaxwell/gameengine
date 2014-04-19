@@ -30,9 +30,7 @@ int main(int argc, char** argv) {
     ge::Level * level = new ge::Level( new ge::StarBackground( sf::Vector2f( -200.f , 0.f ) , 1024 ) , colors );
     ge::Game game( level );
     game.launch();
-    
-    delete level;
-    
+        
     return 0;
 }
 
