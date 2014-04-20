@@ -6,7 +6,7 @@
  */
 
 #include "LinearTrajectory.h"
-
+#include <iostream>
 using namespace ge;
 
 LinearTrajectory::LinearTrajectory( const sf::Vector2f& speedVector ) : m_speedVector(speedVector) {

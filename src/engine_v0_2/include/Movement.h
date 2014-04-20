@@ -22,7 +22,7 @@ namespace ge {
 
         virtual ~Movement();
 
-        sf::Transform movement(float elapsed);
+        void movement(float elapsed , sf::Shape * shape );
         
         void addTransformation( int timestamp, Transformation * transformation );
 

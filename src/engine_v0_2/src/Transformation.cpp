@@ -6,7 +6,7 @@
  */
 
 #include "Transformation.h"
-
+#include<iostream>
 using namespace ge;
 
 Transformation::Transformation( float lifetime ) : m_trajectory(nullptr), m_rotation(nullptr), m_scale(nullptr) , m_lifetime(lifetime) , m_started(false) {
@@ -29,17 +29,16 @@ Transformation::Transformation(const Transformation& orig) : m_lifetime(orig.m_l
 Transformation::~Transformation() {
 }
 
-sf::Transform Transformation::transform(float elapsed){
-    sf::Transform tr;
-    
+TransformationComponent Transformation::transform(float elapsed){
+    TransformationComponent tr = { sf::Vector2f(0,0) , 0 , sf::Vector2f( 1.f , 1.f ) };
     if( m_trajectory != nullptr )
-        tr.translate( m_trajectory->movement(elapsed) );
+        tr.translation =  m_trajectory->movement(elapsed) ;
     
     if( m_rotation != nullptr )
-        tr.rotate( m_rotation->rotation(elapsed) );
+        tr.rotation =  m_rotation->rotation(elapsed) ;
     
     if( m_scale != nullptr )
-        tr.scale( m_scale->scale(elapsed) );
+        tr.scale =  m_scale->scale(elapsed) ;
     
     return tr;
 }

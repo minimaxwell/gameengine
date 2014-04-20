@@ -23,9 +23,13 @@ namespace ge {
 
         virtual NonPlayer * clone() const = 0;
         
-        sf::Transform update(float elapsed);
+        void update(float elapsed);
         
         bool canBeDestroyed() const;
+        
+        void start();
+        
+        sf::Shape * shape() const;
         
     protected:
 

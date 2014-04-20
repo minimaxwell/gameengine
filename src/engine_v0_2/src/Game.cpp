@@ -25,10 +25,7 @@ Game::~Game() {
 
 void Game::render() const{
     
-    m_window->clear();
-    m_window->draw( *( m_level->m_background ) );
-    m_window->draw( *( m_player->shape() ) );
-    m_window->display();
+
 }
         
 void Game::update(float elapsed){
@@ -44,8 +41,28 @@ void Game::update(float elapsed){
             m_window->close();
     }
     
+    m_window->clear();
+
+    std::vector<NonPlayer *>::iterator it = m_entities.begin();
+    while( it != m_entities.end() ){
+        if( (*it)->canBeDestroyed() ){
+            NonPlayer * p = *it;
+            it = m_entities.erase( it );
+            delete p;
+        }else{
+            (*it)->update(elapsed);
+            m_window->draw(  * ((*it)->shape()) );
+            
+            it++;
+        }
+    }
+    
     m_player->update(elapsed);
     m_level->m_background->update(elapsed);
+    
+    m_window->draw( *( m_level->m_background ) );
+    m_window->draw( *( m_player->shape() ) );
+    m_window->display();
     
 }
 
@@ -81,16 +98,42 @@ void Game::launch(){
     m_player->shape( new sf::CircleShape( 10 ) );
     
     m_playing = true;
-    
+    m_level->start();
     loop();
 }
 
 void Game::loop(){
     
+    std::vector<Sequence *> sequences;
     
     sf::Clock clock;
     while( m_window->isOpen() && m_playing ){
         update(clock.restart().asSeconds());
+        
+        while( m_level->hasNext() ){
+            Sequence * s = m_level->next();
+            sequences.push_back( s );
+            s->start();
+        }
+        
+        std::vector<Sequence *>::iterator it = sequences.begin();
+        while( it != sequences.end() ){
+            if( (*it)->ended() ){
+                Sequence * s = *it;
+                it = sequences.erase( it );
+                delete s;
+            }else{
+                
+                while( (*it)->hasNext() ){
+                    NonPlayer * p = (*it)->next();
+                    m_entities.push_back( p );
+                    p->start();
+                }
+                
+                it++;
+            }
+        }
+        
         render();
     }
     

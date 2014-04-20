@@ -14,6 +14,12 @@
 
 namespace ge {
 
+    struct TransformationComponent{
+        sf::Vector2f translation;
+        float rotation;
+        sf::Vector2f scale;
+    };
+    
     class Transformation {
     public:
 
@@ -23,7 +29,7 @@ namespace ge {
 
         virtual ~Transformation();
 
-        sf::Transform transform(float elapsed);
+        TransformationComponent transform(float elapsed);
         
         void start();
         

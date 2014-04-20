@@ -21,29 +21,32 @@ Movement::Movement(const Movement& orig) : m_started(false) {
 Movement::~Movement() {
 }
 
-sf::Transform Movement::movement(float elapsed){
+void Movement::movement(float elapsed, sf::Shape * shape){
     
     if( !m_started )
-        return sf::Transform();
+        return ;
     
     // TODO : The transformation began somewhere during "elasped". We need to find when, and apply the transformation to this period.
     std::multimap<int, Transformation *>::iterator it = m_timeline.begin();
     while(m_timeline.begin()->first < m_clock.getElapsedTime().asMilliseconds() && it != m_timeline.end() ){
+        it->second->start();
         m_currentTransformations.push_back( it->second );
         it = m_timeline.erase( it );
     }
     
-    sf::Transform tr;
+    TransformationComponent tr;
     std::vector<Transformation *>::iterator itt = m_currentTransformations.begin() ;
     while( itt != m_currentTransformations.end()  ){
         if( (*itt)->hasEnded() ){
             itt = m_currentTransformations.erase( itt );
         }else{
-            tr.combine((*itt)->transform(elapsed));
+            tr = (*itt)->transform(elapsed);
+            shape->move( tr.translation );
+            shape->rotate( tr.rotation );
+            shape->scale( tr.scale );
             itt++;
         }
     }
-    return tr;
 }
         
 void Movement::addTransformation( int timestamp, Transformation * transformation ){

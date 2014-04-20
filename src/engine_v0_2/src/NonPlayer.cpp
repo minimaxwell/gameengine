@@ -6,6 +6,7 @@
  */
 
 #include "NonPlayer.h"
+#include <iostream>
 
 using namespace ge;
 
@@ -24,13 +25,23 @@ NonPlayer::NonPlayer( sf::Shape * shape, ge::Color color, Movement * movement, f
 }
 
 NonPlayer::~NonPlayer() {
+    std::cout << "deleted" << std::endl;
 }
 
-sf::Transform NonPlayer::update(float elapsed){
+void NonPlayer::update(float elapsed){
     m_currtime += elapsed;
-    return m_movement->movement(elapsed);
+    return m_movement->movement(elapsed , m_shape);
 }
         
 bool NonPlayer::canBeDestroyed() const{
     return ( m_lifetime > 0 ) &&  ( m_currtime > m_lifetime );
+}
+
+void NonPlayer::start(){
+    m_shape->setFillColor( m_color.color() );
+    m_movement->start();
+}
+
+sf::Shape * NonPlayer::shape() const{
+    return m_shape;
 }
