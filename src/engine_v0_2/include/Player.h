@@ -10,6 +10,7 @@
 
 #include "SFML/Graphics.hpp"
 #include "Color.h"
+#include "MovementController.h"
 #include <vector>
 
 namespace ge {
@@ -17,7 +18,7 @@ namespace ge {
     class Player {
     public:
 
-        Player( const std::vector<ge::Color>& colorPoll, const sf::Vector2f& initPosition , float baseSpeed);
+        Player( const std::vector<ge::Color>& colorPoll, const sf::Vector2f& initPosition , float baseSpeed , MovementController * movementController);
 
         virtual ~Player();
 
@@ -31,6 +32,9 @@ namespace ge {
         
         void shape( sf::Shape * shape );
         
+        void movementController( MovementController * movementController );
+        
+        MovementController * movementController() const;
     private:
 
         sf::Shape * m_shape;
@@ -42,6 +46,8 @@ namespace ge {
         sf::Vector2f m_position;
         
         float m_baseSpeed;
+        
+        MovementController * m_movementController;
         
     };
 

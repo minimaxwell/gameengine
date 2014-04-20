@@ -6,7 +6,7 @@
  */
 
 #include "Game.h"
-
+#include "KeyboardController.h"
 using namespace ge;
 
 GameParameters Game::parameters = { 1440, 900, "The game v 0.2 ", 9 };
@@ -56,7 +56,7 @@ void Game::update(float elapsed){
 void Game::launch(){
     
     
-    m_player = new Player( m_level->playerColorPoll() , sf::Vector2f( Game::parameters.gameWidth / 2 , Game::parameters.gameHeight / 2 ) , 200.f );
+    m_player = new Player( m_level->playerColorPoll() , sf::Vector2f( Game::parameters.gameWidth / 2 , Game::parameters.gameHeight / 2 ) , 200.f , new KeyboardController());
     m_player->shape( new sf::CircleShape( 10 ) );
     
     m_window = new sf::RenderWindow(sf::VideoMode( Game::parameters.gameWidth , Game::parameters.gameHeight ), Game::parameters.gameTitle);

@@ -9,7 +9,7 @@
 
 using namespace ge;
 
-Player::Player( const std::vector<ge::Color>& colorPoll, const sf::Vector2f& initPosition, float baseSpeed ) : m_currentColorIndex(0), m_colorPoll(colorPoll), m_position(initPosition), m_baseSpeed(baseSpeed) {
+Player::Player( const std::vector<ge::Color>& colorPoll, const sf::Vector2f& initPosition, float baseSpeed , MovementController * movementController) : m_currentColorIndex(0), m_colorPoll(colorPoll), m_position(initPosition), m_baseSpeed(baseSpeed), m_movementController(movementController) {
 }
 
 Player::~Player() {
@@ -17,30 +17,10 @@ Player::~Player() {
 }
 
 void Player::update( float elapsed ){
-
-    float speed = m_baseSpeed;
-    sf::Vector2f deplacement;
     
-    if(sf::Keyboard::isKeyPressed( sf::Keyboard::LShift ) ){
-        speed *= 2;
-    }
-    
-    if(sf::Keyboard::isKeyPressed( sf::Keyboard::Z ) ){
-        deplacement.y = -speed * elapsed;
-    }
-    
-    if(sf::Keyboard::isKeyPressed( sf::Keyboard::S ) ){
-        deplacement.y = speed * elapsed;
-    }
-    
-    if(sf::Keyboard::isKeyPressed( sf::Keyboard::Q ) ){
-        deplacement.x = -speed * elapsed;
-    }
-    
-    if(sf::Keyboard::isKeyPressed( sf::Keyboard::D ) ){
-        deplacement.x = speed * elapsed;
-    }
-    
+    sf::Vector2f deplacement = m_movementController->move(elapsed);
+    deplacement.x *= m_baseSpeed;
+    deplacement.y *= m_baseSpeed;
     m_position += deplacement;
     m_shape->setPosition(m_position);
     
@@ -70,4 +50,14 @@ void Player::shape( sf::Shape * shape ){
     m_shape = shape;
     m_shape->setPosition( m_position );
     m_shape->setFillColor(  m_colorPoll[ m_currentColorIndex ].color() );
+}
+
+void Player::movementController( MovementController * movementController ){
+    MovementController * toDelete = m_movementController;
+    m_movementController = movementController;
+    delete toDelete;
+}
+        
+MovementController * Player::movementController() const{
+    return m_movementController;
 }

@@ -23,6 +23,8 @@ set(engine_v0_2_SRCS
 	${PROJECT_SOURCE_DIR}/StarBackground.cpp
 	${PROJECT_SOURCE_DIR}/Trajectory.cpp
 	${PROJECT_SOURCE_DIR}/Transformation.cpp
+	${PROJECT_SOURCE_DIR}/MovementController.cpp
+	${PROJECT_SOURCE_DIR}/KeyboardController.cpp
 	${PROJECT_SOURCE_DIR}/Main.cpp
 	)
  
