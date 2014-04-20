@@ -51,3 +51,19 @@ sf::Vector2f KeyboardController::move(float elapsed) const{
     
     return movement;
 }
+
+bool KeyboardController::pauseEvent(const sf::Event& event) const{
+    return event.key.code == configuration.pause;
+}
+        
+bool KeyboardController::useEvent(const sf::Event& event) const{
+    return event.key.code == configuration.use;
+}
+
+bool KeyboardController::selectEvent(const sf::Event& event) const{
+    return event.key.code == configuration.select;
+}
+
+bool KeyboardController::toggleColor(const sf::Event& event) const{
+    return event.key.code == configuration.toggleColor;
+}

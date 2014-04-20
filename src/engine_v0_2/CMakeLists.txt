@@ -25,6 +25,7 @@ set(engine_v0_2_SRCS
 	${PROJECT_SOURCE_DIR}/Transformation.cpp
 	${PROJECT_SOURCE_DIR}/MovementController.cpp
 	${PROJECT_SOURCE_DIR}/KeyboardController.cpp
+	${PROJECT_SOURCE_DIR}/JoystickController.cpp
 	${PROJECT_SOURCE_DIR}/Main.cpp
 	)
  

@@ -33,6 +33,16 @@ namespace ge {
         
         sf::Vector2f move(float elapsed) const;
             
+        sf::Event::EventType handledEvent() const { return sf::Event::EventType::KeyPressed; }
+        
+        bool pauseEvent(const sf::Event& event) const;
+        
+        bool useEvent(const sf::Event& event) const;
+        
+        bool selectEvent(const sf::Event& event) const;
+        
+        bool toggleColor(const sf::Event& event) const;
+        
         KeyboardConfiguration configuration;
         
     private:

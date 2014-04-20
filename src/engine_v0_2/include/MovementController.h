@@ -19,6 +19,17 @@ namespace ge {
 
         virtual sf::Vector2f move(float elapsed) const = 0;
         
+        virtual sf::Event::EventType handledEvent() const = 0;
+        
+        virtual bool pauseEvent(const sf::Event& event) const = 0;
+        
+        virtual bool useEvent(const sf::Event& event) const = 0;
+        
+        virtual bool selectEvent(const sf::Event& event) const = 0;
+        
+        virtual bool toggleColor(const sf::Event& event) const = 0;
+        
+        
     private:
         
     };
