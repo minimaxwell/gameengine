@@ -6,7 +6,7 @@
  */
 
 #include "Movement.h"
-
+#include <iostream>
 using namespace ge;
 
 Movement::Movement() : m_started(false) {
@@ -41,6 +41,7 @@ void Movement::movement(float elapsed, sf::Shape * shape){
             itt = m_currentTransformations.erase( itt );
         }else{
             tr = (*itt)->transform(elapsed);
+            
             shape->move( tr.translation );
             shape->rotate( tr.rotation );
             shape->scale( tr.scale );

@@ -23,5 +23,5 @@ RectangularNonPlayer::~RectangularNonPlayer() {
 }
 
 NonPlayer * RectangularNonPlayer::clone() const{
-    return new RectangularNonPlayer( m_width, m_height, m_color, m_movement, m_lifetime , m_initPosition );
+    return new RectangularNonPlayer( m_width, m_height, m_color, new Movement(*m_movement), m_lifetime , m_initPosition );
 }
