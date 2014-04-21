@@ -22,19 +22,19 @@ namespace ge {
 
         virtual ~Movement();
 
-        void movement(float elapsed , sf::Shape * shape );
+        void movement(unsigned long long elapsed , sf::Shape * shape );
         
-        void addTransformation( int timestamp, Transformation * transformation );
+        void addTransformation( unsigned long long timestamp, Transformation * transformation );
 
         void start() ;
         
     private:
 
-        std::multimap<int, Transformation *> m_timeline;
+        std::multimap<unsigned long long, Transformation *> m_timeline;
         
         std::vector<Transformation *> m_currentTransformations;
         
-        sf::Clock m_clock;
+        unsigned long long m_startingTime;
         
         bool m_started;
         

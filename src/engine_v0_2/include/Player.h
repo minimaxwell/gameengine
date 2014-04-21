@@ -18,11 +18,11 @@ namespace ge {
     class Player {
     public:
 
-        Player( const std::vector<ge::Color>& colorPoll, const sf::Vector2f& initPosition , float baseSpeed , MovementController * movementController);
+        Player( const std::vector<ge::Color>& colorPoll, const sf::Vector2f& initPosition , double baseSpeed , MovementController * movementController);
 
         virtual ~Player();
 
-        void update( float elapsed );
+        void update( unsigned long long elapsed );
         
         void toggleColor();
         
@@ -45,7 +45,7 @@ namespace ge {
         
         sf::Vector2f m_position;
         
-        float m_baseSpeed;
+        double m_baseSpeed;
         
         MovementController * m_movementController;
         

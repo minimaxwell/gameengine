@@ -31,7 +31,7 @@ namespace ge {
 
         virtual ~KeyboardController();
         
-        sf::Vector2f move(float elapsed) const;
+        sf::Vector2f move(unsigned long long elapsed) const;
             
         sf::Event::EventType handledEvent() const { return sf::Event::EventType::KeyPressed; }
         

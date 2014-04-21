@@ -17,7 +17,7 @@ namespace ge {
 
         virtual ~Rotation();
 
-        virtual float rotation(float elapsed) = 0;
+        virtual double rotation(unsigned long long elapsed) = 0;
         
         virtual Rotation * clone() const = 0;
         

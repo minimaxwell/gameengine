@@ -21,7 +21,7 @@ namespace ge {
 
         virtual ~StarBackground();
 
-        void update(float elapsed);
+        void update(unsigned long long elapsed);
         
         void draw( sf::RenderTarget& target, sf::RenderStates states ) const;
         

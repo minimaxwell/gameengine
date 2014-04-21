@@ -15,8 +15,8 @@ namespace ge {
     class RectangularNonPlayer : public ::ge::NonPlayer {
     public:
 
-        RectangularNonPlayer( float width, float height, eColor baseColor, int fuzz,Movement * movement, float lifetime, const sf::Vector2f& initPosition );
-        RectangularNonPlayer( float width, float height, const ge::Color& color,Movement * movement, float lifetime, const sf::Vector2f& initPosition );
+        RectangularNonPlayer( float width, float height, eColor baseColor, int fuzz,Movement * movement, unsigned long long lifetime, const sf::Vector2f& initPosition );
+        RectangularNonPlayer( float width, float height, const ge::Color& color,Movement * movement, unsigned long long lifetime, const sf::Vector2f& initPosition );
 
         virtual ~RectangularNonPlayer();
 

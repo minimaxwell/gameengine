@@ -15,20 +15,20 @@ namespace ge {
     class SinusoidalTrajectory : public ::ge::Trajectory {
     public:
 
-        SinusoidalTrajectory( float angularSpeed, const sf::Vector2f& baseDirection, float initAngle );
+        SinusoidalTrajectory( double angularSpeed, const sf::Vector2f& baseDirection, double initAngle );
 
         virtual ~SinusoidalTrajectory();
 
-        sf::Vector2f movement(float elapsed);
+        sf::Vector2f movement(unsigned long long elapsed);
         
         Trajectory * clone() const;
         
     private:
 
-        float m_angularSpeed;
+        double m_angularSpeed;
         sf::Vector2f m_baseDirection;
-        float m_initAngle;
-        float m_currentAngle;
+        double m_initAngle;
+        double m_currentAngle;
         
     };
 

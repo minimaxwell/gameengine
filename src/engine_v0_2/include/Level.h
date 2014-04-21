@@ -23,7 +23,7 @@ namespace ge {
 
         virtual ~Level();
 
-        void addSequence( int timestamp, Sequence * sequence );
+        void addSequence( unsigned long long timestamp, Sequence * sequence );
         
         Sequence * next();
         
@@ -41,13 +41,13 @@ namespace ge {
     private:
 
         
-        std::multimap<int, Sequence *> m_timeline;
+        std::multimap<unsigned long long, Sequence *> m_timeline;
         
         std::vector<ge::Color> m_playerColorPoll;
         
         bool m_started;
         
-        sf::Clock m_clock;
+        unsigned long long m_startingTimestamp;
     };
 
 }

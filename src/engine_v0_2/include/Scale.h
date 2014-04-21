@@ -17,7 +17,7 @@ namespace ge {
 
         virtual ~Scale();
 
-        virtual sf::Vector2f scale(float elapsed) = 0;
+        virtual sf::Vector2f scale(unsigned long long elapsed) = 0;
         
         virtual Scale * clone() const = 0;
         

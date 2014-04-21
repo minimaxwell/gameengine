@@ -13,6 +13,8 @@ using namespace ge;
 
 GameParameters Game::parameters = { 1440, 900, "The game v 0.2 ", 9 };
 
+unsigned long long Game::currentTimestamp = 0;
+
 Game::Game( Level * level ) : m_level(level) {
 }
 
@@ -28,7 +30,7 @@ void Game::render() const{
 
 }
         
-void Game::update(float elapsed){
+void Game::update(unsigned long long elapsed){
     sf::Event event;
     while (m_window->pollEvent(event))
     {
@@ -105,10 +107,12 @@ void Game::launch(){
 void Game::loop(){
     
     std::vector<Sequence *> sequences;
-    
+    unsigned long long elapsed;
     sf::Clock clock;
     while( m_window->isOpen() && m_playing ){
-        update(clock.restart().asSeconds());
+        elapsed = clock.getElapsedTime().asMicroseconds() - Game::currentTimestamp;
+        Game::currentTimestamp += elapsed;
+        update( elapsed );
         
         while( m_level->hasNext() ){
             Sequence * s = m_level->next();

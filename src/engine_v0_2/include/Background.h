@@ -19,7 +19,7 @@ namespace ge {
         
         virtual ~Background();
 
-        virtual void update(float elapsed) = 0;
+        virtual void update(unsigned long long elapsed) = 0;
         
         virtual void draw( sf::RenderTarget& target, sf::RenderStates states ) const = 0;
         

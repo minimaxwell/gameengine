@@ -17,7 +17,7 @@ namespace ge {
 
         virtual ~MovementController();
 
-        virtual sf::Vector2f move(float elapsed) const = 0;
+        virtual sf::Vector2f move(unsigned long long elapsed) const = 0;
         
         virtual sf::Event::EventType handledEvent() const = 0;
         

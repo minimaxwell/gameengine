@@ -6,6 +6,7 @@
  */
 
 #include "Level.h"
+#include "Game.h"
 
 using namespace ge;
 
@@ -13,7 +14,7 @@ Level::Level( Background * background, std::vector<ge::Color> playerColorPoll ) 
 }
 
 Level::Level(const Level& orig) : m_started(false) {
-    for(std::multimap< int, Sequence * >::const_iterator it = orig.m_timeline.begin() ; it != orig.m_timeline.end() ; it++ ){
+    for(std::multimap< unsigned long long, Sequence * >::const_iterator it = orig.m_timeline.begin() ; it != orig.m_timeline.end() ; it++ ){
         addSequence( it->first , new Sequence( *( it->second ) ) );
     }
 }
@@ -22,8 +23,8 @@ Level::~Level() {
     delete m_background;
 }
 
-void Level::addSequence( int timestamp, Sequence * sequence ){
-    m_timeline.insert( std::pair<int, Sequence *>(timestamp, sequence) );
+void Level::addSequence( unsigned long long timestamp, Sequence * sequence ){
+    m_timeline.insert( std::pair<unsigned long long, Sequence *>(timestamp, sequence) );
 }
 
 Sequence * Level::next(){
@@ -36,7 +37,7 @@ Sequence * Level::next(){
 }
 
 bool Level::hasNext() const{
-    return m_started && ! hasEnded() && m_timeline.begin()->first < m_clock.getElapsedTime().asMilliseconds();
+    return m_started && ! hasEnded() && m_timeline.begin()->first < ( Game::currentTimestamp - m_startingTimestamp );
 }
 
 bool Level::hasEnded() const{
@@ -45,5 +46,5 @@ bool Level::hasEnded() const{
 
 void Level::start(){
     m_started = true;
-    m_clock.restart();
+    m_startingTimestamp = Game::currentTimestamp;
 }

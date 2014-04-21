@@ -9,14 +9,14 @@
 
 using namespace ge;
 
-ConstantSpeedRotation::ConstantSpeedRotation( float angularSpeed ) : Rotation(), m_angularSpeed(angularSpeed) {
+ConstantSpeedRotation::ConstantSpeedRotation( double angularSpeed ) : Rotation(), m_angularSpeed(angularSpeed) {
 }
 
 ConstantSpeedRotation::~ConstantSpeedRotation() {
 }
 
-float ConstantSpeedRotation::rotation(float elapsed){
-    return 360 * m_angularSpeed * elapsed;
+double ConstantSpeedRotation::rotation(unsigned long long elapsed){
+    return 360 * m_angularSpeed * ( elapsed / 1000000.0 );
 }
         
 Rotation * ConstantSpeedRotation::clone() const{

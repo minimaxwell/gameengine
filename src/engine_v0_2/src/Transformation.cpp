@@ -6,10 +6,11 @@
  */
 
 #include "Transformation.h"
+#include "Game.h"
 #include<iostream>
 using namespace ge;
 
-Transformation::Transformation( float lifetime ) : m_trajectory(nullptr), m_rotation(nullptr), m_scale(nullptr) , m_lifetime(lifetime) , m_started(false) {
+Transformation::Transformation( unsigned long long lifetime ) : m_trajectory(nullptr), m_rotation(nullptr), m_scale(nullptr) , m_lifetime(lifetime) , m_started(false) {
 }
 
 Transformation::Transformation(const Transformation& orig) : m_lifetime(orig.m_lifetime), m_started(false) {
@@ -29,7 +30,7 @@ Transformation::Transformation(const Transformation& orig) : m_lifetime(orig.m_l
 Transformation::~Transformation() {
 }
 
-TransformationComponent Transformation::transform(float elapsed){
+TransformationComponent Transformation::transform(unsigned long long elapsed){
     TransformationComponent tr = { sf::Vector2f(0,0) , 0 , sf::Vector2f( 1.f , 1.f ) };
     if( m_trajectory != nullptr )
         tr.translation =  m_trajectory->movement(elapsed) ;
@@ -45,11 +46,11 @@ TransformationComponent Transformation::transform(float elapsed){
 
 void Transformation::start(){
     m_started = true;
-    m_clock.restart();
+    m_startingTimestamp = Game::currentTimestamp;
 }
 
 bool Transformation::hasEnded() const{
-    return  m_lifetime > 0.f &&  m_clock.getElapsedTime().asSeconds() > m_lifetime;
+    return  m_lifetime > 0 &&  Game::currentTimestamp - m_startingTimestamp > m_lifetime;
 }
 
 void Transformation::trajectory( Trajectory * trajectory ){

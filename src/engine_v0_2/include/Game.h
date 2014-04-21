@@ -31,13 +31,15 @@ namespace ge {
 
         void render() const;
         
-        void update(float elapsed);
+        void update(unsigned long long elapsed);
         
         void launch();
         
         void loop();
         
         static GameParameters parameters;
+        
+        static unsigned long long currentTimestamp;
         
         
     private:
@@ -53,6 +55,8 @@ namespace ge {
         Level * m_level;
         
         std::vector<Sequence *> m_activeSequences;
+        
+        unsigned long long m_currentTimestamp;
         
     };
 

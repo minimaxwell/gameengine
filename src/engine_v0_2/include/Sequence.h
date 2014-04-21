@@ -30,15 +30,15 @@ namespace ge {
         
         bool ended() const;
         
-        void addNonPlayer( int timestamp , NonPlayer * player );
+        void addNonPlayer( unsigned long long timestamp , NonPlayer * player );
         
     private:
 
         bool m_started;
         
-        sf::Clock m_clock;
+        unsigned long long m_startingTimestamp;
         
-        std::multimap<int, NonPlayer * > m_timeline;
+        std::multimap<unsigned long long, NonPlayer * > m_timeline;
         
     };
 

@@ -15,8 +15,9 @@ LinearTrajectory::LinearTrajectory( const sf::Vector2f& speedVector ) : m_speedV
 LinearTrajectory::~LinearTrajectory() {
 }
 
-sf::Vector2f LinearTrajectory::movement(float elapsed){
-    return sf::Vector2f( m_speedVector.x * elapsed  , m_speedVector.y * elapsed  );
+sf::Vector2f LinearTrajectory::movement(unsigned long long elapsed){
+    double elapsedSeconds = elapsed / 1000000.0;
+    return sf::Vector2f( m_speedVector.x * elapsedSeconds  , m_speedVector.y * elapsedSeconds  );
 }
         
 Trajectory * LinearTrajectory::clone() const{

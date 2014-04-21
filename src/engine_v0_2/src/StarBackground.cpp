@@ -28,7 +28,7 @@ StarBackground::StarBackground( const sf::Vector2f& baseSpeed, unsigned int nbEl
 StarBackground::~StarBackground() {
 }
 
-void StarBackground::update(float elapsed){
+void StarBackground::update(unsigned long long elapsed){
     for( unsigned int i = 0 ; i < m_nbElements ; i++ ){
         if( m_vertices[i].position.x < 0 || m_vertices[i].position.x > 1440 || m_vertices[i].position.y < 0 || m_vertices[i].position.y > 900 ){
             int depth = 50 + rand() % 150;
@@ -42,8 +42,9 @@ void StarBackground::update(float elapsed){
         m_vertices[i].position.y = rand() % 900;
         }
         
-        m_vertices[i].position.x += m_baseSpeed.x  * elapsed* ( m_depths[i] / 200.f );
-        m_vertices[i].position.y += m_baseSpeed.y * elapsed * ( m_depths[i] / 200.f );
+        double elapsedSeconds = ( elapsed / 1000000.0 ); // microseconds to seconds
+        m_vertices[i].position.x += m_baseSpeed.x  * elapsedSeconds* ( m_depths[i] / 200.f );
+        m_vertices[i].position.y += m_baseSpeed.y * elapsedSeconds * ( m_depths[i] / 200.f );
         
     }
 }

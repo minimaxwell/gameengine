@@ -9,14 +9,15 @@
 
 using namespace ge;
 
-ConstantSpeedScale::ConstantSpeedScale( float expansionSpeed ) : Scale(), m_expansionSpeed( expansionSpeed ) {
+ConstantSpeedScale::ConstantSpeedScale( double expansionSpeed ) : Scale(), m_expansionSpeed( expansionSpeed ) {
 }
 
 ConstantSpeedScale::~ConstantSpeedScale() {
 }
 
-sf::Vector2f ConstantSpeedScale::scale(float elapsed){
-    return sf::Vector2f( m_expansionSpeed * ( 1.f +elapsed ) , m_expansionSpeed * ( 1.f + elapsed ) );
+sf::Vector2f ConstantSpeedScale::scale(unsigned long long elapsed){
+    double elapsedSeconds = elapsed / 1000000.0;
+    return sf::Vector2f( m_expansionSpeed * ( 1.f +elapsedSeconds ) , m_expansionSpeed * ( 1.f + elapsedSeconds ) );
 }
 
 Scale * ConstantSpeedScale::clone() const{

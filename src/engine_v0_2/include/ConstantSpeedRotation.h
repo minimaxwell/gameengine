@@ -15,17 +15,17 @@ namespace ge {
     class ConstantSpeedRotation : public ::ge::Rotation {
     public:
 
-        ConstantSpeedRotation( float angularSpeed );
+        ConstantSpeedRotation( double angularSpeed );
 
         virtual ~ConstantSpeedRotation();
 
-        float rotation(float elapsed);
+        double rotation(unsigned long long elapsed);
         
         Rotation * clone() const;
         
     private:
 
-        float m_angularSpeed;
+        double m_angularSpeed;
         
     };
 

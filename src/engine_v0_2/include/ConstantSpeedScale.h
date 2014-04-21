@@ -15,17 +15,17 @@ namespace ge {
     class ConstantSpeedScale : ::ge::Scale {
     public:
 
-        ConstantSpeedScale( float expansionSpeed );
+        ConstantSpeedScale( double expansionSpeed );
 
         virtual ~ConstantSpeedScale();
 
-        sf::Vector2f scale(float elapsed);
+        sf::Vector2f scale(unsigned long long elapsed);
         
         Scale * clone() const;
         
     private:
 
-        float m_expansionSpeed;
+        double m_expansionSpeed;
         
     };
 

@@ -19,7 +19,7 @@ namespace ge {
 
         virtual ~Trajectory();
 
-        virtual sf::Vector2f movement(float elapsed) = 0;
+        virtual sf::Vector2f movement(unsigned long long elapsed) = 0;
         
         virtual Trajectory * clone() const = 0;
         

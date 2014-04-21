@@ -14,13 +14,13 @@ NonPlayer::NonPlayer( sf::Shape * shape,
                       eColor baseColor,
                       int fuzz,
                       Movement * movement,
-                      float lifetime,
-                      const sf::Vector2f& initPosition ) : m_shape( shape ), m_color( ge::Color::createColor( baseColor, fuzz ) , baseColor ), m_movement( movement ), m_lifetime( lifetime ), m_currtime(0), m_initPosition(initPosition) {
+                      unsigned long long lifetime,
+                      const sf::Vector2f& initPosition ) : m_shape( shape ), m_color( ge::Color::createColor( baseColor, fuzz ) , baseColor ), m_movement( movement ), m_lifetime( lifetime ), m_currTime(0), m_initPosition(initPosition) {
     m_shape->setPosition( m_initPosition );
 }
 
 
-NonPlayer::NonPlayer( sf::Shape * shape, ge::Color color, Movement * movement, float lifetime, const sf::Vector2f& initPosition ) : m_shape(shape), m_color(color), m_movement(movement), m_lifetime(lifetime), m_currtime(0), m_initPosition(initPosition) {
+NonPlayer::NonPlayer( sf::Shape * shape, ge::Color color, Movement * movement, unsigned long long lifetime, const sf::Vector2f& initPosition ) : m_shape(shape), m_color(color), m_movement(movement), m_lifetime(lifetime), m_currTime(0), m_initPosition(initPosition) {
     m_shape->setPosition( m_initPosition );
 }
 
@@ -28,13 +28,13 @@ NonPlayer::~NonPlayer() {
     std::cout << "deleted" << std::endl;
 }
 
-void NonPlayer::update(float elapsed){
-    m_currtime += elapsed;
+void NonPlayer::update(unsigned long long elapsed){
+    m_currTime += elapsed;
     return m_movement->movement(elapsed , m_shape);
 }
         
 bool NonPlayer::canBeDestroyed() const{
-    return ( m_lifetime > 0 ) &&  ( m_currtime > m_lifetime );
+    return ( m_lifetime > 0 ) &&  ( m_currTime > m_lifetime );
 }
 
 void NonPlayer::start(){

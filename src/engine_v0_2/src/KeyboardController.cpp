@@ -25,28 +25,29 @@ KeyboardController::KeyboardController() {
 KeyboardController::~KeyboardController() {
 }
 
-sf::Vector2f KeyboardController::move(float elapsed) const{
-    float speed = 1.f;
+sf::Vector2f KeyboardController::move(unsigned long long elapsed) const{
+    double speed = 1.f;
     sf::Vector2f movement;
+    double elapsedSeconds = elapsed / 1000000.0;
     
     if(sf::Keyboard::isKeyPressed( configuration.speedUp ) ){
         speed *= 2;
     }
     
     if(sf::Keyboard::isKeyPressed( configuration.y_neg ) ){
-        movement.y = -speed * elapsed;
+        movement.y = -speed * elapsedSeconds;
     }
     
     if(sf::Keyboard::isKeyPressed( configuration.y_pos ) ){
-        movement.y = speed * elapsed;
+        movement.y = speed * elapsedSeconds;
     }
     
     if(sf::Keyboard::isKeyPressed( configuration.x_neg ) ){
-        movement.x = -speed * elapsed;
+        movement.x = -speed * elapsedSeconds;
     }
     
     if(sf::Keyboard::isKeyPressed( configuration.x_pos ) ){
-        movement.x = speed * elapsed;
+        movement.x = speed * elapsedSeconds;
     }
     
     return movement;

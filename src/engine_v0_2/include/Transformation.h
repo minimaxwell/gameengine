@@ -16,20 +16,20 @@ namespace ge {
 
     struct TransformationComponent{
         sf::Vector2f translation;
-        float rotation;
+        double rotation;
         sf::Vector2f scale;
     };
     
     class Transformation {
     public:
 
-        Transformation( float lifetime );
+        Transformation( unsigned long long lifetime );
 
         Transformation(const Transformation& orig);
 
         virtual ~Transformation();
 
-        TransformationComponent transform(float elapsed);
+        TransformationComponent transform(unsigned long long elapsed);
         
         void start();
         
@@ -45,9 +45,8 @@ namespace ge {
         Rotation * m_rotation;
         Scale * m_scale;
         
-        float m_lifetime;
-        sf::Clock m_clock;
-        
+        unsigned long long m_lifetime;
+        unsigned long long m_startingTimestamp;
         bool m_started;
         
     };
