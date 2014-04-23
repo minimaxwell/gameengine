@@ -11,7 +11,7 @@
 #include "Level.h"
 #include "Color.h"
 #include "StarBackground.h"
-
+#include "TimelineSequence.h"
 #include "SFML/Graphics.hpp"
 #include "LinearTrajectory.h"
 #include "RectangularNonPlayer.h"
@@ -39,14 +39,14 @@ int main(int argc, char** argv) {
     
     ge::NonPlayer * p = new ge::RectangularNonPlayer( 10.f , 10.f , ge::eColor::BLUE , 10 , movement, 10000000, sf::Vector2f( 1440 , 450 )  );
     
-    ge::Sequence * s = new ge::Sequence();
+    ge::Sequence * s = new ge::TimelineSequence();
     
     for(int i = 0 ; i < 10 ; i++){
-        s->addNonPlayer( i * 200000 , p->clone() );
+        s->addEntity( i * 200000 , p->clone() );
     }
     
     level->addSequence( 0 , s );
-    level->addSequence( 5000000 , new ge::Sequence(*s) );
+    level->addSequence( 5000000 ,s->clone() );
     
     ge::Movement * complexMovement = new ge::Movement();
     
@@ -66,16 +66,16 @@ int main(int argc, char** argv) {
     
     ge::NonPlayer * p2 = new ge::RectangularNonPlayer( 10.f , 10.f , ge::eColor::ORANGE , 10 , complexMovement, 15000000, sf::Vector2f( 1440 , 200 )  );
 
-    ge::Sequence * s2 = new ge::Sequence();
+    ge::Sequence * s2 = new ge::TimelineSequence();
     
-    s2->addNonPlayer(0 ,p2 );
-    s2->addNonPlayer(200000 ,p2->clone() );
-    s2->addNonPlayer(400000 ,p2->clone() );
-    s2->addNonPlayer(600000 ,p2->clone() );
-    s2->addNonPlayer(800000 ,p2->clone() );
+    s2->addEntity(0 ,p2 );
+    s2->addEntity(200000 ,p2->clone() );
+    s2->addEntity(400000 ,p2->clone() );
+    s2->addEntity(600000 ,p2->clone() );
+    s2->addEntity(800000 ,p2->clone() );
     
-    level->addSequence(500000, s2);
-    level->addSequence(5000000, new ge::Sequence( *s2 ));
+    level->addSequence(0, s2);
+    level->addSequence(5000000, s2->clone());
     
     ge::Game game( level );
     game.launch();

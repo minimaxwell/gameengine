@@ -35,6 +35,8 @@ namespace ge {
         void movementController( MovementController * movementController );
         
         MovementController * movementController() const;
+        
+        sf::Vector2f position() const {return m_position;}
     private:
 
         sf::Shape * m_shape;

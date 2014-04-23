@@ -8,9 +8,8 @@
 #ifndef NONPLAYER_H
 #define	NONPLAYER_H
 
-#include "Movement.h"
 #include "Color.h"
-
+#include "Movement.h"
 namespace ge {
 
     class NonPlayer {

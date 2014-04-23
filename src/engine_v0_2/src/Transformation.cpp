@@ -10,10 +10,10 @@
 #include<iostream>
 using namespace ge;
 
-Transformation::Transformation( unsigned long long lifetime ) : m_trajectory(nullptr), m_rotation(nullptr), m_scale(nullptr) , m_lifetime(lifetime) , m_started(false) {
+Transformation::Transformation( unsigned long long lifetime ) : m_trajectory(nullptr), m_rotation(nullptr), m_scale(nullptr) , m_lifetime(lifetime) , m_started(false), m_ended(false) {
 }
 
-Transformation::Transformation(const Transformation& orig) : m_lifetime(orig.m_lifetime), m_started(false) {
+Transformation::Transformation(const Transformation& orig) : m_lifetime(orig.m_lifetime), m_started(false), m_ended(false) {
     if( orig.m_trajectory != nullptr ){
         m_trajectory = orig.m_trajectory->clone();
     }
@@ -31,7 +31,21 @@ Transformation::~Transformation() {
 }
 
 TransformationComponent Transformation::transform(unsigned long long elapsed){
+    
     TransformationComponent tr = { sf::Vector2f(0,0) , 0 , sf::Vector2f( 1.f , 1.f ) };
+
+    
+    if( m_ended ){
+        return tr;
+    }
+    
+    if( m_aliveTime + elapsed >= m_lifetime ){
+        m_ended = true;
+        elapsed = m_lifetime - m_aliveTime;
+    }
+    
+    m_aliveTime += elapsed;
+    
     if( m_trajectory != nullptr )
         tr.translation =  m_trajectory->movement(elapsed) ;
     
@@ -45,12 +59,16 @@ TransformationComponent Transformation::transform(unsigned long long elapsed){
 }
 
 void Transformation::start(){
+    m_aliveTime = 0;
     m_started = true;
-    m_startingTimestamp = Game::currentTimestamp;
 }
 
 bool Transformation::hasEnded() const{
-    return  m_lifetime > 0 &&  Game::currentTimestamp - m_startingTimestamp > m_lifetime;
+    return  m_ended;
+}
+
+unsigned long long Transformation::lifetime() const{
+    return m_lifetime;
 }
 
 void Transformation::trajectory( Trajectory * trajectory ){

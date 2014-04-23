@@ -8,6 +8,9 @@
 #include "Game.h"
 #include "KeyboardController.h"
 #include "JoystickController.h"
+#include "RectangularNonPlayer.h"
+#include "LinearTrajectory.h"
+#include "ConstantSpeedRotation.h"
 #include <iostream>
 using namespace ge;
 
@@ -26,8 +29,14 @@ Game::~Game() {
 }
 
 void Game::render() const{
+    m_window->clear();
     
-
+    m_window->draw( *( m_level->m_background ) );
+    
+    m_level->draw( m_window );
+    
+    m_window->draw( *( m_player->shape() ) );
+    m_window->display();
 }
         
 void Game::update(unsigned long long elapsed){
@@ -43,34 +52,19 @@ void Game::update(unsigned long long elapsed){
             m_window->close();
     }
     
-    m_window->clear();
 
-    std::vector<NonPlayer *>::iterator it = m_entities.begin();
-    while( it != m_entities.end() ){
-        if( (*it)->canBeDestroyed() ){
-            NonPlayer * p = *it;
-            it = m_entities.erase( it );
-            delete p;
-        }else{
-            (*it)->update(elapsed);
-            m_window->draw(  * ((*it)->shape()) );
-            
-            it++;
-        }
-    }
+ 
     
     m_player->update(elapsed);
     m_level->m_background->update(elapsed);
-    
-    m_window->draw( *( m_level->m_background ) );
-    m_window->draw( *( m_player->shape() ) );
-    m_window->display();
+    m_level->update(elapsed);
+
     
 }
 
 void Game::launch(){
     
-    m_window = new sf::RenderWindow(sf::VideoMode( Game::parameters.gameWidth , Game::parameters.gameHeight ), Game::parameters.gameTitle);
+    m_window = new sf::RenderWindow(sf::VideoMode( Game::parameters.gameWidth , Game::parameters.gameHeight ), "the game");
     
     m_window->setVerticalSyncEnabled(true);
     
@@ -106,38 +100,13 @@ void Game::launch(){
 
 void Game::loop(){
     
-    std::vector<Sequence *> sequences;
-    unsigned long long elapsed;
+    unsigned long long elapsed = 0;
     sf::Clock clock;
     while( m_window->isOpen() && m_playing ){
         elapsed = clock.getElapsedTime().asMicroseconds() - Game::currentTimestamp;
         Game::currentTimestamp += elapsed;
+
         update( elapsed );
-        
-        while( m_level->hasNext() ){
-            Sequence * s = m_level->next();
-            sequences.push_back( s );
-            s->start();
-        }
-        
-        std::vector<Sequence *>::iterator it = sequences.begin();
-        while( it != sequences.end() ){
-            if( (*it)->ended() ){
-                Sequence * s = *it;
-                it = sequences.erase( it );
-                delete s;
-            }else{
-                
-                while( (*it)->hasNext() ){
-                    NonPlayer * p = (*it)->next();
-                    m_entities.push_back( p );
-                    p->start();
-                }
-                
-                it++;
-            }
-        }
-        
         render();
     }
     

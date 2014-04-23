@@ -13,6 +13,8 @@
 
 namespace ge {
 
+    class NonPlayer;
+    
     class Movement {
     public:
 
@@ -22,19 +24,18 @@ namespace ge {
 
         virtual ~Movement();
 
-        void movement(unsigned long long elapsed , sf::Shape * shape );
+        void update( unsigned long long elapsed, sf::Shape* shape );
+                
+        void addTransformation( unsigned long long departureTimestamp , Transformation * transformation );
         
-        void addTransformation( unsigned long long timestamp, Transformation * transformation );
-
-        void start() ;
+        void start();
         
     private:
 
-        std::multimap<unsigned long long, Transformation *> m_timeline;
+        std::multimap<unsigned long long , Transformation *> m_timeline;
+        std::vector< Transformation * > m_activeTransformations ;
         
-        std::vector<Transformation *> m_currentTransformations;
-        
-        unsigned long long m_startingTime;
+        unsigned long long m_elapsedTime;
         
         bool m_started;
         

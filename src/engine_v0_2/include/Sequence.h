@@ -17,29 +17,28 @@ namespace ge {
     public:
 
         Sequence();
-
-        Sequence(const Sequence& orig);
-
+        
         virtual ~Sequence();
 
+        virtual void update(unsigned long long elapsed) = 0;
+        
+        void draw( sf::RenderTarget * target ) const;
+        
         void start();
         
-        bool hasNext() const;
+        virtual bool ended() const = 0;
         
-        NonPlayer * next();
+        virtual void addEntity( unsigned long long startingTimestamp,  NonPlayer * entity ) = 0;
         
-        bool ended() const;
+        virtual Sequence * clone() const = 0;
         
-        void addNonPlayer( unsigned long long timestamp , NonPlayer * player );
-        
-    private:
+    protected:
 
+        std::vector< NonPlayer * > m_activeEntities;
+        
+        unsigned long long m_elapsedTime;
+        
         bool m_started;
-        
-        unsigned long long m_startingTimestamp;
-        
-        std::multimap<unsigned long long, NonPlayer * > m_timeline;
-        
     };
 
 }

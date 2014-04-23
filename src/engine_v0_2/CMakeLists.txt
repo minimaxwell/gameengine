@@ -19,6 +19,7 @@ set(engine_v0_2_SRCS
 	${PROJECT_SOURCE_DIR}/Rotation.cpp
 	${PROJECT_SOURCE_DIR}/Scale.cpp
 	${PROJECT_SOURCE_DIR}/Sequence.cpp
+	${PROJECT_SOURCE_DIR}/TimelineSequence.cpp
 	${PROJECT_SOURCE_DIR}/SinusoidalTrajectory.cpp
 	${PROJECT_SOURCE_DIR}/StarBackground.cpp
 	${PROJECT_SOURCE_DIR}/Trajectory.cpp

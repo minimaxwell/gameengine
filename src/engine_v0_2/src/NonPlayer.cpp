@@ -30,11 +30,11 @@ NonPlayer::~NonPlayer() {
 
 void NonPlayer::update(unsigned long long elapsed){
     m_currTime += elapsed;
-    return m_movement->movement(elapsed , m_shape);
+    m_movement->update(elapsed , m_shape);
 }
         
 bool NonPlayer::canBeDestroyed() const{
-    return ( m_lifetime > 0 ) &&  ( m_currTime > m_lifetime );
+    return  ( m_currTime > m_lifetime );
 }
 
 void NonPlayer::start(){

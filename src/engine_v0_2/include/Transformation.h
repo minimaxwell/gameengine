@@ -39,6 +39,7 @@ namespace ge {
         void rotation( Rotation * rotation );
         void scale( Scale * scale);
         
+        unsigned long long lifetime() const;
     private:
 
         Trajectory * m_trajectory;
@@ -46,8 +47,10 @@ namespace ge {
         Scale * m_scale;
         
         unsigned long long m_lifetime;
-        unsigned long long m_startingTimestamp;
         bool m_started;
+        bool m_ended;
+      
+        unsigned long long m_aliveTime;
         
     };
 
