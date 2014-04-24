@@ -16,6 +16,7 @@
 #include "SFML/Graphics.hpp"
 #include "LinearTrajectory.h"
 #include "RectangularNonPlayer.h"
+#include "SourceSequence.h"
 
 using namespace std;
 
@@ -79,6 +80,11 @@ int main(int argc, char** argv) {
     level->addSequence(0, s2);
     level->addSequence(5000000, s2->clone());
     
+    ge::NonPlayer * p3 = new ge::RectangularNonPlayer( 10.f , 10.f , ge::eColor::PINK , 10 , new ge::Movement( *complexMovement ), 15000000, sf::Vector2f( 1440 , 250 )  );
+    
+    ge::SourceSequence * s3 = new ge::SourceSequence( p3 , 100000 , -1 );
+    
+    level->addSequence( 1000000 , s3 );
     ge::Game game( level );
     game.launch();
         

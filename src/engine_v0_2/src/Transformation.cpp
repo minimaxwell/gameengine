@@ -13,7 +13,7 @@ using namespace ge;
 Transformation::Transformation( unsigned long long lifetime ) : m_trajectory(nullptr), m_rotation(nullptr), m_scale(nullptr) , m_lifetime(lifetime) , m_started(false), m_ended(false) {
 }
 
-Transformation::Transformation(const Transformation& orig) : m_lifetime(orig.m_lifetime), m_started(false), m_ended(false) {
+Transformation::Transformation(const Transformation& orig) :m_trajectory(nullptr), m_rotation(nullptr), m_scale(nullptr),  m_lifetime(orig.m_lifetime), m_started(false), m_ended(false) {
     if( orig.m_trajectory != nullptr ){
         m_trajectory = orig.m_trajectory->clone();
     }
