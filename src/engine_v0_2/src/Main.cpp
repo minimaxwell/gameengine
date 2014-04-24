@@ -11,6 +11,7 @@
 #include "Level.h"
 #include "Color.h"
 #include "StarBackground.h"
+#include "KillLaKillBackground.h"
 #include "TimelineSequence.h"
 #include "SFML/Graphics.hpp"
 #include "LinearTrajectory.h"
@@ -29,7 +30,8 @@ int main(int argc, char** argv) {
     colors.push_back( ge::Color::purple );
     colors.push_back( ge::Color::yellow );
     
-    ge::Level * level = new ge::Level( new ge::StarBackground( sf::Vector2f( -200.f , 0.f ) , 1024 ) , colors );
+    //ge::Level * level = new ge::Level( new ge::StarBackground( sf::Vector2f( -200.f , 0.f ) , 1024 ) , colors );
+    ge::Level * level = new ge::Level( new ge::KillLaKillBackground( 9 ) , colors );
     
     ge::Movement * movement = new ge::Movement();
     ge::Transformation * t = new ge::Transformation( 10000000 );

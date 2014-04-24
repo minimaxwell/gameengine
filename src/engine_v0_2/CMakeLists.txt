@@ -6,6 +6,7 @@ set (PROJECT_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src)
  
 set(engine_v0_2_SRCS
 	${PROJECT_SOURCE_DIR}/Background.cpp
+	${PROJECT_SOURCE_DIR}/KillLaKillBackground.cpp
 	${PROJECT_SOURCE_DIR}/Color.cpp
 	${PROJECT_SOURCE_DIR}/ConstantSpeedRotation.cpp
 	${PROJECT_SOURCE_DIR}/ConstantSpeedScale.cpp

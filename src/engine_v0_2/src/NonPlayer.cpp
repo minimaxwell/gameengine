@@ -16,11 +16,13 @@ NonPlayer::NonPlayer( sf::Shape * shape,
                       Movement * movement,
                       unsigned long long lifetime,
                       const sf::Vector2f& initPosition ) : m_shape( shape ), m_color( ge::Color::createColor( baseColor, fuzz ) , baseColor ), m_movement( movement ), m_lifetime( lifetime ), m_currTime(0), m_initPosition(initPosition) {
+    m_shape->setOrigin( m_shape->getGlobalBounds().width / 2 , m_shape->getGlobalBounds().height / 2 );
     m_shape->setPosition( m_initPosition );
 }
 
 
 NonPlayer::NonPlayer( sf::Shape * shape, ge::Color color, Movement * movement, unsigned long long lifetime, const sf::Vector2f& initPosition ) : m_shape(shape), m_color(color), m_movement(movement), m_lifetime(lifetime), m_currTime(0), m_initPosition(initPosition) {
+    m_shape->setOrigin( m_shape->getGlobalBounds().width / 2 , m_shape->getGlobalBounds().height / 2 );
     m_shape->setPosition( m_initPosition );
 }
 

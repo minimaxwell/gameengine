@@ -15,7 +15,6 @@ RectangularNonPlayer::RectangularNonPlayer( float width, float height, eColor ba
 
 RectangularNonPlayer::RectangularNonPlayer( float width, float height, const ge::Color& color,Movement * movement, unsigned long long lifetime, const sf::Vector2f& initPosition ) : 
                                             NonPlayer( new sf::RectangleShape( sf::Vector2f( width, height ) ) , color, movement, lifetime, initPosition ), m_width( width ), m_height( height ){
-    
 }
 
 

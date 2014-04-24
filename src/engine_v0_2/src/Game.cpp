@@ -63,11 +63,12 @@ void Game::update(unsigned long long elapsed){
 }
 
 void Game::launch(){
-    
-    m_window = new sf::RenderWindow(sf::VideoMode( Game::parameters.gameWidth , Game::parameters.gameHeight ), "the game");
+    sf::ContextSettings settings;
+    settings.antialiasingLevel = 8;
+    m_window = new sf::RenderWindow(sf::VideoMode( Game::parameters.gameWidth , Game::parameters.gameHeight ), "the game",sf::Style::Default, settings);
     
     m_window->setVerticalSyncEnabled(true);
-    
+        
         std::cout << "Scanning for external controllers..." << std::endl;
     
     unsigned int joystick = ge::NO_JOYSTICK ;

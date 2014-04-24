@@ -48,6 +48,7 @@ const sf::Shape * Player::shape() const{
         
 void Player::shape( sf::Shape * shape ){
     m_shape = shape;
+    m_shape->setOrigin( m_shape->getGlobalBounds().width / 2 , m_shape->getGlobalBounds().height / 2 );
     m_shape->setPosition( m_position );
     m_shape->setFillColor(  m_colorPoll[ m_currentColorIndex ].color() );
 }
