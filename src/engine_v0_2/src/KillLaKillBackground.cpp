@@ -27,7 +27,7 @@ KillLaKillBackground::KillLaKillBackground( unsigned int nbLines ) : Background(
                              50 + (rand() % Game::parameters.gameHeight - 100 ));
         m_vertices[i]->rotate( rand() % 360 );
         
-        m_vertices[i]->setFillColor( ge::Color::createColor( ge::RED , 35 ) );
+        m_vertices[i]->setFillColor( sf::Color(255,10,10,100) ) ;
         
     }
     

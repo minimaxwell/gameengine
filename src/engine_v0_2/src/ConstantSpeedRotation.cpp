@@ -16,7 +16,7 @@ ConstantSpeedRotation::~ConstantSpeedRotation() {
 }
 
 double ConstantSpeedRotation::rotation(unsigned long long elapsed){
-    return 360 * m_angularSpeed * ( elapsed / 1000000.0 );
+    return  m_angularSpeed * ( elapsed / 1000000.0 );
 }
         
 Rotation * ConstantSpeedRotation::clone() const{
