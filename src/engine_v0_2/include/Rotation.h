@@ -10,6 +10,7 @@
 
 namespace ge {
 
+    class NonPlayer;
     class Rotation {
     public:
 
@@ -21,8 +22,12 @@ namespace ge {
         
         virtual Rotation * clone() const = 0;
         
-    private:
+        void nonPlayer( NonPlayer * nonPlayer );
+        
+    protected:
 
+        const NonPlayer * m_nonPlayer;
+        
     };
 
 }

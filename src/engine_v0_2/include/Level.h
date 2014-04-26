@@ -11,6 +11,7 @@
 #include "Sequence.h"
 #include "Background.h"
 #include "Color.h"
+#include "Player.h"
 
 namespace ge {
 
@@ -37,6 +38,10 @@ namespace ge {
         
         void update( unsigned long long elapsed );
         
+        Player * player();
+        
+        void player( Player * player );
+        
     private:
 
         
@@ -49,6 +54,8 @@ namespace ge {
         unsigned long long m_elapsedTime;
         
         bool m_started;
+        
+        Player * m_player;
         
     };
 

@@ -40,6 +40,8 @@ namespace ge {
         void scale( Scale * scale);
         
         unsigned long long lifetime() const;
+        
+        void nonPlayer( NonPlayer * nonPlayer );
     private:
 
         Trajectory * m_trajectory;
@@ -51,7 +53,8 @@ namespace ge {
         bool m_ended;
       
         unsigned long long m_aliveTime;
-        
+      
+        const NonPlayer * m_nonPlayer;
     };
 
 }

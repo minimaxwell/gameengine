@@ -10,6 +10,7 @@
 #include "SFML/Graphics.hpp"
 namespace ge {
 
+    class NonPlayer;
     class Scale {
     public:
 
@@ -21,8 +22,12 @@ namespace ge {
         
         virtual Scale * clone() const = 0;
         
-    private:
+        void nonPlayer( NonPlayer * nonPlayer );
+        
+    protected:
 
+        NonPlayer * m_nonPlayer;
+        
     };
 
 }

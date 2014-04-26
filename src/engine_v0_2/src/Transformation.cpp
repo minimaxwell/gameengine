@@ -82,3 +82,16 @@ void Transformation::rotation( Rotation * rotation ){
 void Transformation::scale( Scale * scale){
     m_scale = scale;
 }
+
+void Transformation::nonPlayer( NonPlayer * nonPlayer ){
+    m_nonPlayer = nonPlayer;
+    
+     if( m_trajectory != nullptr )
+         m_trajectory->nonPlayer( nonPlayer );
+    
+    if( m_rotation != nullptr )
+        m_rotation->nonPlayer( nonPlayer );
+    
+    if( m_scale != nullptr )
+        m_scale->nonPlayer( nonPlayer );
+}

@@ -79,3 +79,10 @@ void Movement::start(){
     m_elapsedTime = 0;
     m_started = true;
 }
+
+void Movement::nonPlayer( NonPlayer * nonPlayer ){
+    m_nonPlayer = nonPlayer;
+    for( std::multimap<unsigned long long, Transformation *>::const_iterator it = m_timeline.begin() ; it != m_timeline.end() ; it++ ){
+        it->second->nonPlayer( nonPlayer );
+    }
+}

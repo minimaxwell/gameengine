@@ -30,6 +30,8 @@ namespace ge {
         
         void start();
         
+        void nonPlayer( NonPlayer * nonPlayer );
+        
     private:
 
         std::multimap<unsigned long long , Transformation *> m_timeline;
@@ -38,6 +40,8 @@ namespace ge {
         unsigned long long m_elapsedTime;
         
         bool m_started;
+        
+        const NonPlayer * m_nonPlayer;
         
     };
 

@@ -18,7 +18,7 @@ namespace ge {
     class Player {
     public:
 
-        Player( const std::vector<ge::Color>& colorPoll, const sf::Vector2f& initPosition , double baseSpeed , MovementController * movementController);
+        Player( const std::vector<ge::Color>& colorPoll, const sf::Vector2f& initPosition , double baseSpeed);
 
         virtual ~Player();
 

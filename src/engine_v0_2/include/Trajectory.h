@@ -7,11 +7,11 @@
 
 #ifndef TRAJECTORY_H
 #define	TRAJECTORY_H
-
 #include "SFML/Graphics.hpp"
 
 namespace ge {
 
+    class NonPlayer;
     class Trajectory {
     public:
 
@@ -23,7 +23,11 @@ namespace ge {
         
         virtual Trajectory * clone() const = 0;
         
-    private:
+        void nonPlayer( NonPlayer * nonPlayer );
+        
+    protected:
+        
+        const NonPlayer * m_nonPlayer;
 
     };
 

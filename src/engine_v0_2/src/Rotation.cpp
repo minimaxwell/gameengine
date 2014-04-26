@@ -15,3 +15,6 @@ Rotation::Rotation() {
 Rotation::~Rotation() {
 }
 
+void Rotation::nonPlayer( NonPlayer * nonPlayer ){
+    m_nonPlayer = nonPlayer;
+}

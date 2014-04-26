@@ -9,7 +9,7 @@
 
 using namespace ge;
 
-Player::Player( const std::vector<ge::Color>& colorPoll, const sf::Vector2f& initPosition, double baseSpeed , MovementController * movementController) : m_currentColorIndex(0), m_colorPoll(colorPoll), m_position(initPosition), m_baseSpeed(baseSpeed), m_movementController(movementController) {
+Player::Player( const std::vector<ge::Color>& colorPoll, const sf::Vector2f& initPosition, double baseSpeed ) : m_currentColorIndex(0), m_colorPoll(colorPoll), m_position(initPosition), m_baseSpeed(baseSpeed) {
 }
 
 Player::~Player() {

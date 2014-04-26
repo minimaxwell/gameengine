@@ -15,3 +15,6 @@ Trajectory::Trajectory() {
 Trajectory::~Trajectory() {
 }
 
+void Trajectory::nonPlayer( NonPlayer * nonPlayer ){
+    m_nonPlayer = nonPlayer;
+}

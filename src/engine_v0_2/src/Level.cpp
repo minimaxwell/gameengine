@@ -73,3 +73,11 @@ void Level::update(unsigned long long elapsed){
     m_elapsedTime += elapsed;
     
 }
+
+Player * Level::player(){
+    return m_player;
+}
+
+void Level::player( Player * player ){
+    m_player = player;
+}

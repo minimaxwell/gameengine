@@ -13,6 +13,7 @@ set(engine_v0_2_SRCS
 	${PROJECT_SOURCE_DIR}/Game.cpp
 	${PROJECT_SOURCE_DIR}/Level.cpp
 	${PROJECT_SOURCE_DIR}/LinearTrajectory.cpp
+	${PROJECT_SOURCE_DIR}/LinearAimingTrajectory.cpp
 	${PROJECT_SOURCE_DIR}/Movement.cpp
 	${PROJECT_SOURCE_DIR}/NonPlayer.cpp
 	${PROJECT_SOURCE_DIR}/Player.cpp

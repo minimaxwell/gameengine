@@ -91,8 +91,8 @@ void Game::launch(){
         controller = new KeyboardController();
     }
     
-    m_player = new Player( m_level->playerColorPoll() , sf::Vector2f( Game::parameters.gameWidth / 2 , Game::parameters.gameHeight / 2 ) , 200.f , controller);
-    m_player->shape( new sf::CircleShape( 10 ) );
+    m_player = m_level->player();
+    m_player->movementController( controller );
     
     m_playing = true;
     m_level->start();
