@@ -12,7 +12,7 @@
 
 namespace ge {
 
-    class ConstantSpeedScale : ::ge::Scale {
+    class ConstantSpeedScale : public ::ge::Scale {
     public:
 
         ConstantSpeedScale( double expansionSpeed );

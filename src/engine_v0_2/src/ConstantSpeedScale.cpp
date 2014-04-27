@@ -17,7 +17,7 @@ ConstantSpeedScale::~ConstantSpeedScale() {
 
 sf::Vector2f ConstantSpeedScale::scale(unsigned long long elapsed){
     double elapsedSeconds = elapsed / 1000000.0;
-    return sf::Vector2f( m_expansionSpeed * ( 1.f +elapsedSeconds ) , m_expansionSpeed * ( 1.f + elapsedSeconds ) );
+    return sf::Vector2f( 1.f + ( m_expansionSpeed * elapsedSeconds ) ,  1.f +( m_expansionSpeed * elapsedSeconds ) );
 }
 
 Scale * ConstantSpeedScale::clone() const{
