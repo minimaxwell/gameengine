@@ -22,6 +22,8 @@
 #include "ConstantSpeedScale.h"
 #include "SourceSequence.h"
 #include "sfml/SFML-master/include/SFML/System/Vector2.hpp"
+#include "ColorPulse.h"
+#include "SynchronizedColorPulse.h"
 
 using namespace std;
 
@@ -33,9 +35,17 @@ int main(int argc, char** argv) {
     
     std::vector<ge::Color> colors;
     colors.push_back( ge::Color::green );
-    colors.push_back( ge::Color::purple );
-    colors.push_back( ge::Color::yellow );
+    colors.push_back( ge::Color::red );
     
+    std::vector<ge::Color> npColors;
+    npColors.push_back( ge::Color::green );
+    npColors.push_back( ge::Color::red );
+    npColors.push_back( ge::Color::orange );
+    
+    ge::SynchronizedColorPulse::m_period = 1000000;
+    ge::SynchronizedColorPulse::m_next = 1000000;
+    ge::SynchronizedColorPulse::m_currentColorIndex = 0;
+    ge::SynchronizedColorPulse::m_colors = npColors;
     //ge::Level * level = new ge::Level( new ge::StarBackground( sf::Vector2f( -200.f , 0.f ) , 1024 ) , colors );
     ge::Level * level = new ge::Level( new ge::KillLaKillBackground( 10 ) , colors );
         
@@ -48,18 +58,19 @@ int main(int argc, char** argv) {
     ge::Transformation * t = new ge::Transformation( 10000000 );
     t->trajectory( new ge::LinearAimingTrajectory( player, 300.f ) );
     t->rotation( new ge::ConstantSpeedRotation( 180.f ) );
-    t->scale( new ge::ConstantSpeedScale( 0.5f ));
+    //t->colorEffect( new ge::ColorPulse( colors, 1000000 ) );
+    t->colorEffect( new ge::SynchronizedColorPulse(  ) );
     movement->addTransformation( 0, t );
     
-    ge::NonPlayer * p =  new ge::RectangularNonPlayer( 10.f , 10.f , ge::eColor::BLUE        , 10 , new ge::Movement( *movement ), 10000000, sf::Vector2f( 1440 , 100 )  );
-    ge::NonPlayer * p1 = new ge::RectangularNonPlayer( 12.f , 12.f , ge::eColor::GREEN       , 10 , new ge::Movement( *movement ), 10000000, sf::Vector2f( 1440 , 200 )  );
-    ge::NonPlayer * p2 = new ge::RectangularNonPlayer(  9.f ,  9.f , ge::eColor::LIGHT_BLUE  , 10 , new ge::Movement( *movement ), 10000000, sf::Vector2f( 1440 , 300 )  );
-    ge::NonPlayer * p3 = new ge::RectangularNonPlayer( 11.f , 11.f , ge::eColor::LIGHT_GREEN , 10 , new ge::Movement( *movement ), 10000000, sf::Vector2f( 1440 , 400 )  );
-    ge::NonPlayer * p4 = new ge::RectangularNonPlayer( 16.f , 16.f , ge::eColor::ORANGE      , 10 , new ge::Movement( *movement ), 10000000, sf::Vector2f( 1440 , 450 )  );
-    ge::NonPlayer * p5 = new ge::RectangularNonPlayer( 10.f , 10.f , ge::eColor::PINK        , 10 , new ge::Movement( *movement ), 10000000, sf::Vector2f( 1440 , 500 )  );
-    ge::NonPlayer * p6 = new ge::RectangularNonPlayer( 12.f , 12.f , ge::eColor::PURPLE      , 10 , new ge::Movement( *movement ), 10000000, sf::Vector2f( 1440 , 600 )  );
-    ge::NonPlayer * p7 = new ge::RectangularNonPlayer( 10.f , 10.f , ge::eColor::RED         , 10 , new ge::Movement( *movement ), 10000000, sf::Vector2f( 1440 , 700 )  );
-    ge::NonPlayer * p8 = new ge::RectangularNonPlayer(  8.f ,  8.f , ge::eColor::WHITE       , 10 , new ge::Movement( *movement ), 10000000, sf::Vector2f( 1440 , 800 )  );
+    ge::NonPlayer * p =  new ge::RectangularNonPlayer( 10.f , 10.f , ge::eColor::RED        , 30 , new ge::Movement( *movement ), 10000000, sf::Vector2f( 1440 , 100 ) , player );
+    ge::NonPlayer * p1 = new ge::RectangularNonPlayer( 12.f , 12.f , ge::eColor::RED       , 30 , new ge::Movement( *movement ), 10000000, sf::Vector2f( 1440 , 200 ) , player );
+    ge::NonPlayer * p2 = new ge::RectangularNonPlayer(  9.f ,  9.f , ge::eColor::RED  , 30 , new ge::Movement( *movement ), 10000000, sf::Vector2f( 1440 , 300 ) , player );
+    ge::NonPlayer * p3 = new ge::RectangularNonPlayer( 11.f , 11.f , ge::eColor::RED , 30 , new ge::Movement( *movement ), 10000000, sf::Vector2f( 1440 , 400 ) , player );
+    ge::NonPlayer * p4 = new ge::RectangularNonPlayer( 16.f , 16.f , ge::eColor::RED      , 30 , new ge::Movement( *movement ), 10000000, sf::Vector2f( 1440 , 450 ) , player );
+    ge::NonPlayer * p5 = new ge::RectangularNonPlayer( 10.f , 10.f , ge::eColor::RED        , 30 , new ge::Movement( *movement ), 10000000, sf::Vector2f( 1440 , 500 ) , player );
+    ge::NonPlayer * p6 = new ge::RectangularNonPlayer( 12.f , 12.f , ge::eColor::RED      , 30 , new ge::Movement( *movement ), 10000000, sf::Vector2f( 1440 , 600 ) , player );
+    ge::NonPlayer * p7 = new ge::RectangularNonPlayer( 10.f , 10.f , ge::eColor::RED         , 30 , new ge::Movement( *movement ), 10000000, sf::Vector2f( 1440 , 700 ) , player );
+    ge::NonPlayer * p8 = new ge::RectangularNonPlayer(  8.f ,  8.f , ge::eColor::RED       , 30 , new ge::Movement( *movement ), 10000000, sf::Vector2f( 1440 , 800 ) , player );
     
     level->addSequence( 0 , new ge::SourceSequence( p->clone() , 100000 , -1 ) );
     level->addSequence( 1000000 , new ge::SourceSequence( p1->clone() , 1000000 , -1 ) );

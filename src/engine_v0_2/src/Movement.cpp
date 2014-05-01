@@ -38,6 +38,11 @@ void Movement::update( unsigned long long elapsed , sf::Shape * shape ){
         shape->rotate( tc.rotation );
         shape->scale( tc.scale );
         
+        if(tc.colorChange){
+            shape->setFillColor( tc.color.color() );
+            m_nonPlayer->color(tc.color);
+        }
+        
         if( (*transIt)->hasEnded() ){
             Transformation * tr_toDelete = *transIt;
             transIt = m_activeTransformations.erase( transIt );
@@ -58,7 +63,10 @@ void Movement::update( unsigned long long elapsed , sf::Shape * shape ){
         shape->move( tc.translation );
         shape->rotate( tc.rotation );
         shape->scale( tc.scale );
-        
+        if(tc.colorChange){
+            shape->setFillColor( tc.color.color() );
+            m_nonPlayer->color(tc.color);
+        }
         m_activeTransformations.push_back( it->second );
         it = m_timeline.erase( it ); // we remove the first element.
     }

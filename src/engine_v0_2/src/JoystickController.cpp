@@ -10,7 +10,7 @@
 
 using namespace ge;
 
-JoystickController::JoystickController( unsigned int joystick ) : threshold(10.f), m_joystick(joystick) {
+JoystickController::JoystickController( unsigned int joystick ) : threshold(20.f), m_joystick(joystick) {
 }
 
 JoystickController::~JoystickController() {
@@ -27,8 +27,8 @@ sf::Vector2f JoystickController::move(unsigned long long elapsed) const{
     y = sf::Joystick::getAxisPosition( m_joystick , configuration.y_axis );
     speed = 100.f + sf::Joystick::getAxisPosition( m_joystick , configuration.speedUp );
         
-    x = ( x < -threshold || x > threshold ) ? x / 100 : 0.f ;
-    y = ( y < -threshold || y > threshold ) ? y / 100 : 0.f ;
+    x = ( x < -threshold || x > threshold ) ? 3.*x / 100 : 0.f ;
+    y = ( y < -threshold || y > threshold ) ? 3.*y / 100 : 0.f ;
     
     speed = 1.f + ( ( speed > ( threshold - 100.f ) ) ? speed / 100.f : 0.f );
         

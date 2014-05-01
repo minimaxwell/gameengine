@@ -32,6 +32,8 @@ namespace ge {
         
         virtual Sequence * clone() const = 0;
         
+        void player(  Player *  player );
+        
     protected:
 
         std::vector< NonPlayer * > m_activeEntities;
@@ -39,6 +41,8 @@ namespace ge {
         unsigned long long m_elapsedTime;
         
         bool m_started;
+        
+        Player * m_player;
     };
 
 }

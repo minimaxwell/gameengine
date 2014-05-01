@@ -56,7 +56,6 @@ namespace ge {
         
         std::vector<Sequence *> m_activeSequences;
         
-        unsigned long long m_currentTimestamp;
         
     };
 

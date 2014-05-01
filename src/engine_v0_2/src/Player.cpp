@@ -6,6 +6,7 @@
  */
 
 #include "Player.h"
+#include "NonPlayer.h"
 
 using namespace ge;
 
@@ -34,8 +35,8 @@ void Player::toggleColor(){
     
 }
         
-bool Player::collidesWith( const sf::Shape& shape ) const{
-    if( m_shape->getGlobalBounds().intersects( shape.getGlobalBounds() ) ){
+bool Player::collidesWith( NonPlayer * nonPlayer ) const{
+    if( nonPlayer->color().baseColor() != m_colorPoll[ m_currentColorIndex ].baseColor() &&  m_shape->getGlobalBounds().intersects( nonPlayer->shape()->getGlobalBounds() ) ){
         return true; // Dirty collision system. To be improved later.
     }
     

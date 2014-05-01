@@ -11,6 +11,7 @@
 #include"Trajectory.h"
 #include"Rotation.h"
 #include"Scale.h"
+#include"ColorEffect.h"
 
 namespace ge {
 
@@ -18,6 +19,10 @@ namespace ge {
         sf::Vector2f translation;
         double rotation;
         sf::Vector2f scale;
+        
+        // We do not use deltas for colors. We just notify whenever the color needs to be updated.
+        bool colorChange;
+        ge::Color color;
     };
     
     class Transformation {
@@ -38,6 +43,7 @@ namespace ge {
         void trajectory( Trajectory * trajectory );
         void rotation( Rotation * rotation );
         void scale( Scale * scale);
+        void colorEffect( ColorEffect * colorEffect );
         
         unsigned long long lifetime() const;
         
@@ -47,6 +53,7 @@ namespace ge {
         Trajectory * m_trajectory;
         Rotation * m_rotation;
         Scale * m_scale;
+        ColorEffect * m_colorEffect;
         
         unsigned long long m_lifetime;
         bool m_started;

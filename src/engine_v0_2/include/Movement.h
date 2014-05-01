@@ -41,7 +41,7 @@ namespace ge {
         
         bool m_started;
         
-        const NonPlayer * m_nonPlayer;
+        NonPlayer * m_nonPlayer;
         
     };
 

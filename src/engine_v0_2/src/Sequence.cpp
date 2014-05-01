@@ -26,3 +26,7 @@ void Sequence::start(){
     m_started = true;
     m_elapsedTime = 0;
 }
+
+void Sequence::player(  Player * player ){
+    m_player = player;
+}

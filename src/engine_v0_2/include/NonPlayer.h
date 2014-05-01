@@ -10,13 +10,14 @@
 
 #include "Color.h"
 #include "Movement.h"
+#include "Player.h"
 namespace ge {
 
     class NonPlayer {
     public:
 
-        NonPlayer( sf::Shape * shape, eColor baseColor, int fuzz, Movement * movement, unsigned long long lifetime, const sf::Vector2f& initPosition );
-        NonPlayer( sf::Shape * shape, ge::Color color, Movement * movement, unsigned long long lifetime, const sf::Vector2f& initPosition );
+        NonPlayer( sf::Shape * shape, eColor baseColor, int fuzz, Movement * movement, unsigned long long lifetime, const sf::Vector2f& initPosition, Player * player );
+        NonPlayer( sf::Shape * shape, ge::Color color, Movement * movement, unsigned long long lifetime, const sf::Vector2f& initPosition, Player * player );
 
         virtual ~NonPlayer();
 
@@ -30,11 +31,18 @@ namespace ge {
         
         sf::Shape * shape() const;
         
+        void player(  Player *  player );
+        
+        ge::Color color() const;
+        
+        void color( const ge::Color& color );
     protected:
 
         sf::Shape * m_shape;
         
         ge::Color m_color;
+        
+        int m_fuzz;
         
         Movement * m_movement;
         
@@ -44,6 +52,7 @@ namespace ge {
         
         sf::Vector2f m_initPosition;
         
+        Player * m_player;
     };
 
 }

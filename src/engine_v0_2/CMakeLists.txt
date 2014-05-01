@@ -8,6 +8,9 @@ set(engine_v0_2_SRCS
 	${PROJECT_SOURCE_DIR}/Background.cpp
 	${PROJECT_SOURCE_DIR}/KillLaKillBackground.cpp
 	${PROJECT_SOURCE_DIR}/Color.cpp
+	${PROJECT_SOURCE_DIR}/ColorEffect.cpp
+	${PROJECT_SOURCE_DIR}/ColorPulse.cpp
+	${PROJECT_SOURCE_DIR}/SynchronizedColorPulse.cpp
 	${PROJECT_SOURCE_DIR}/ConstantSpeedRotation.cpp
 	${PROJECT_SOURCE_DIR}/ConstantSpeedScale.cpp
 	${PROJECT_SOURCE_DIR}/Game.cpp

@@ -14,7 +14,7 @@
 #include <vector>
 
 namespace ge {
-
+    class NonPlayer;
     class Player {
     public:
 
@@ -26,7 +26,7 @@ namespace ge {
         
         void toggleColor();
         
-        bool collidesWith( const sf::Shape& shape ) const;
+        bool collidesWith( NonPlayer * nonPlayer ) const;
         
         const sf::Shape * shape() const;
         

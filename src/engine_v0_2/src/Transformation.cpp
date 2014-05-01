@@ -7,13 +7,14 @@
 
 #include "Transformation.h"
 #include "Game.h"
+#include "ColorEffect.h"
 #include<iostream>
 using namespace ge;
 
-Transformation::Transformation( unsigned long long lifetime ) : m_trajectory(nullptr), m_rotation(nullptr), m_scale(nullptr) , m_lifetime(lifetime) , m_started(false), m_ended(false) {
+Transformation::Transformation( unsigned long long lifetime ) : m_trajectory(nullptr), m_rotation(nullptr), m_scale(nullptr) , m_colorEffect(nullptr) , m_lifetime(lifetime) , m_started(false), m_ended(false) {
 }
 
-Transformation::Transformation(const Transformation& orig) :m_trajectory(nullptr), m_rotation(nullptr), m_scale(nullptr),  m_lifetime(orig.m_lifetime), m_started(false), m_ended(false) {
+Transformation::Transformation(const Transformation& orig) :m_trajectory(nullptr), m_rotation(nullptr), m_scale(nullptr), m_colorEffect(nullptr),  m_lifetime(orig.m_lifetime), m_started(false), m_ended(false) {
     if( orig.m_trajectory != nullptr ){
         m_trajectory = orig.m_trajectory->clone();
     }
@@ -25,6 +26,10 @@ Transformation::Transformation(const Transformation& orig) :m_trajectory(nullptr
     if( orig.m_scale != nullptr ){
         m_scale = orig.m_scale->clone();
     }
+    
+    if( orig.m_colorEffect != nullptr ){
+        m_colorEffect = orig.m_colorEffect->clone();
+    }
 }
 
 Transformation::~Transformation() {
@@ -32,7 +37,7 @@ Transformation::~Transformation() {
 
 TransformationComponent Transformation::transform(unsigned long long elapsed){
     
-    TransformationComponent tr = { sf::Vector2f(0,0) , 0 , sf::Vector2f( 1.f , 1.f ) };
+    TransformationComponent tr = { sf::Vector2f(0,0) , 0 , sf::Vector2f( 1.f , 1.f ) , false, ge::Color::white};
 
     
     if( m_ended ){
@@ -54,6 +59,10 @@ TransformationComponent Transformation::transform(unsigned long long elapsed){
     
     if( m_scale != nullptr )
         tr.scale =  m_scale->scale(elapsed) ;
+    
+    if( m_colorEffect != nullptr ){
+        tr.color = m_colorEffect->color(elapsed, tr.colorChange);
+    }
     
     return tr;
 }
@@ -82,6 +91,11 @@ void Transformation::rotation( Rotation * rotation ){
 void Transformation::scale( Scale * scale){
     m_scale = scale;
 }
+
+void Transformation::colorEffect( ColorEffect * colorEffect ){
+    m_colorEffect = colorEffect;
+}
+
 
 void Transformation::nonPlayer( NonPlayer * nonPlayer ){
     m_nonPlayer = nonPlayer;
