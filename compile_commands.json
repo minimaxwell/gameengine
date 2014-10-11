@@ -1,0 +1,147 @@
+[
+{
+  "directory": "/home/maxwell/projects/src/engine_v0_2",
+  "command": "/usr/bin/g++     -Wall -Wextra -std=c++11 -g3 -gdwarf-2 -I/home/maxwell/projects/include -I/home/maxwell/projects -I/home/maxwell/projects/src/engine_v0_2 -I/home/maxwell/projects/src/engine_v0_2/include    -o CMakeFiles/engine_v0_2.dir/src/Background.cpp.o -c /home/maxwell/projects/src/engine_v0_2/src/Background.cpp",
+  "file": "/home/maxwell/projects/src/engine_v0_2/src/Background.cpp"
+},
+{
+  "directory": "/home/maxwell/projects/src/engine_v0_2",
+  "command": "/usr/bin/g++     -Wall -Wextra -std=c++11 -g3 -gdwarf-2 -I/home/maxwell/projects/include -I/home/maxwell/projects -I/home/maxwell/projects/src/engine_v0_2 -I/home/maxwell/projects/src/engine_v0_2/include    -o CMakeFiles/engine_v0_2.dir/src/KillLaKillBackground.cpp.o -c /home/maxwell/projects/src/engine_v0_2/src/KillLaKillBackground.cpp",
+  "file": "/home/maxwell/projects/src/engine_v0_2/src/KillLaKillBackground.cpp"
+},
+{
+  "directory": "/home/maxwell/projects/src/engine_v0_2",
+  "command": "/usr/bin/g++     -Wall -Wextra -std=c++11 -g3 -gdwarf-2 -I/home/maxwell/projects/include -I/home/maxwell/projects -I/home/maxwell/projects/src/engine_v0_2 -I/home/maxwell/projects/src/engine_v0_2/include    -o CMakeFiles/engine_v0_2.dir/src/Color.cpp.o -c /home/maxwell/projects/src/engine_v0_2/src/Color.cpp",
+  "file": "/home/maxwell/projects/src/engine_v0_2/src/Color.cpp"
+},
+{
+  "directory": "/home/maxwell/projects/src/engine_v0_2",
+  "command": "/usr/bin/g++     -Wall -Wextra -std=c++11 -g3 -gdwarf-2 -I/home/maxwell/projects/include -I/home/maxwell/projects -I/home/maxwell/projects/src/engine_v0_2 -I/home/maxwell/projects/src/engine_v0_2/include    -o CMakeFiles/engine_v0_2.dir/src/ColorEffect.cpp.o -c /home/maxwell/projects/src/engine_v0_2/src/ColorEffect.cpp",
+  "file": "/home/maxwell/projects/src/engine_v0_2/src/ColorEffect.cpp"
+},
+{
+  "directory": "/home/maxwell/projects/src/engine_v0_2",
+  "command": "/usr/bin/g++     -Wall -Wextra -std=c++11 -g3 -gdwarf-2 -I/home/maxwell/projects/include -I/home/maxwell/projects -I/home/maxwell/projects/src/engine_v0_2 -I/home/maxwell/projects/src/engine_v0_2/include    -o CMakeFiles/engine_v0_2.dir/src/ColorPulse.cpp.o -c /home/maxwell/projects/src/engine_v0_2/src/ColorPulse.cpp",
+  "file": "/home/maxwell/projects/src/engine_v0_2/src/ColorPulse.cpp"
+},
+{
+  "directory": "/home/maxwell/projects/src/engine_v0_2",
+  "command": "/usr/bin/g++     -Wall -Wextra -std=c++11 -g3 -gdwarf-2 -I/home/maxwell/projects/include -I/home/maxwell/projects -I/home/maxwell/projects/src/engine_v0_2 -I/home/maxwell/projects/src/engine_v0_2/include    -o CMakeFiles/engine_v0_2.dir/src/SynchronizedColorPulse.cpp.o -c /home/maxwell/projects/src/engine_v0_2/src/SynchronizedColorPulse.cpp",
+  "file": "/home/maxwell/projects/src/engine_v0_2/src/SynchronizedColorPulse.cpp"
+},
+{
+  "directory": "/home/maxwell/projects/src/engine_v0_2",
+  "command": "/usr/bin/g++     -Wall -Wextra -std=c++11 -g3 -gdwarf-2 -I/home/maxwell/projects/include -I/home/maxwell/projects -I/home/maxwell/projects/src/engine_v0_2 -I/home/maxwell/projects/src/engine_v0_2/include    -o CMakeFiles/engine_v0_2.dir/src/ConstantSpeedRotation.cpp.o -c /home/maxwell/projects/src/engine_v0_2/src/ConstantSpeedRotation.cpp",
+  "file": "/home/maxwell/projects/src/engine_v0_2/src/ConstantSpeedRotation.cpp"
+},
+{
+  "directory": "/home/maxwell/projects/src/engine_v0_2",
+  "command": "/usr/bin/g++     -Wall -Wextra -std=c++11 -g3 -gdwarf-2 -I/home/maxwell/projects/include -I/home/maxwell/projects -I/home/maxwell/projects/src/engine_v0_2 -I/home/maxwell/projects/src/engine_v0_2/include    -o CMakeFiles/engine_v0_2.dir/src/ConstantSpeedScale.cpp.o -c /home/maxwell/projects/src/engine_v0_2/src/ConstantSpeedScale.cpp",
+  "file": "/home/maxwell/projects/src/engine_v0_2/src/ConstantSpeedScale.cpp"
+},
+{
+  "directory": "/home/maxwell/projects/src/engine_v0_2",
+  "command": "/usr/bin/g++     -Wall -Wextra -std=c++11 -g3 -gdwarf-2 -I/home/maxwell/projects/include -I/home/maxwell/projects -I/home/maxwell/projects/src/engine_v0_2 -I/home/maxwell/projects/src/engine_v0_2/include    -o CMakeFiles/engine_v0_2.dir/src/Game.cpp.o -c /home/maxwell/projects/src/engine_v0_2/src/Game.cpp",
+  "file": "/home/maxwell/projects/src/engine_v0_2/src/Game.cpp"
+},
+{
+  "directory": "/home/maxwell/projects/src/engine_v0_2",
+  "command": "/usr/bin/g++     -Wall -Wextra -std=c++11 -g3 -gdwarf-2 -I/home/maxwell/projects/include -I/home/maxwell/projects -I/home/maxwell/projects/src/engine_v0_2 -I/home/maxwell/projects/src/engine_v0_2/include    -o CMakeFiles/engine_v0_2.dir/src/Level.cpp.o -c /home/maxwell/projects/src/engine_v0_2/src/Level.cpp",
+  "file": "/home/maxwell/projects/src/engine_v0_2/src/Level.cpp"
+},
+{
+  "directory": "/home/maxwell/projects/src/engine_v0_2",
+  "command": "/usr/bin/g++     -Wall -Wextra -std=c++11 -g3 -gdwarf-2 -I/home/maxwell/projects/include -I/home/maxwell/projects -I/home/maxwell/projects/src/engine_v0_2 -I/home/maxwell/projects/src/engine_v0_2/include    -o CMakeFiles/engine_v0_2.dir/src/LinearTrajectory.cpp.o -c /home/maxwell/projects/src/engine_v0_2/src/LinearTrajectory.cpp",
+  "file": "/home/maxwell/projects/src/engine_v0_2/src/LinearTrajectory.cpp"
+},
+{
+  "directory": "/home/maxwell/projects/src/engine_v0_2",
+  "command": "/usr/bin/g++     -Wall -Wextra -std=c++11 -g3 -gdwarf-2 -I/home/maxwell/projects/include -I/home/maxwell/projects -I/home/maxwell/projects/src/engine_v0_2 -I/home/maxwell/projects/src/engine_v0_2/include    -o CMakeFiles/engine_v0_2.dir/src/LinearAimingTrajectory.cpp.o -c /home/maxwell/projects/src/engine_v0_2/src/LinearAimingTrajectory.cpp",
+  "file": "/home/maxwell/projects/src/engine_v0_2/src/LinearAimingTrajectory.cpp"
+},
+{
+  "directory": "/home/maxwell/projects/src/engine_v0_2",
+  "command": "/usr/bin/g++     -Wall -Wextra -std=c++11 -g3 -gdwarf-2 -I/home/maxwell/projects/include -I/home/maxwell/projects -I/home/maxwell/projects/src/engine_v0_2 -I/home/maxwell/projects/src/engine_v0_2/include    -o CMakeFiles/engine_v0_2.dir/src/Movement.cpp.o -c /home/maxwell/projects/src/engine_v0_2/src/Movement.cpp",
+  "file": "/home/maxwell/projects/src/engine_v0_2/src/Movement.cpp"
+},
+{
+  "directory": "/home/maxwell/projects/src/engine_v0_2",
+  "command": "/usr/bin/g++     -Wall -Wextra -std=c++11 -g3 -gdwarf-2 -I/home/maxwell/projects/include -I/home/maxwell/projects -I/home/maxwell/projects/src/engine_v0_2 -I/home/maxwell/projects/src/engine_v0_2/include    -o CMakeFiles/engine_v0_2.dir/src/NonPlayer.cpp.o -c /home/maxwell/projects/src/engine_v0_2/src/NonPlayer.cpp",
+  "file": "/home/maxwell/projects/src/engine_v0_2/src/NonPlayer.cpp"
+},
+{
+  "directory": "/home/maxwell/projects/src/engine_v0_2",
+  "command": "/usr/bin/g++     -Wall -Wextra -std=c++11 -g3 -gdwarf-2 -I/home/maxwell/projects/include -I/home/maxwell/projects -I/home/maxwell/projects/src/engine_v0_2 -I/home/maxwell/projects/src/engine_v0_2/include    -o CMakeFiles/engine_v0_2.dir/src/Player.cpp.o -c /home/maxwell/projects/src/engine_v0_2/src/Player.cpp",
+  "file": "/home/maxwell/projects/src/engine_v0_2/src/Player.cpp"
+},
+{
+  "directory": "/home/maxwell/projects/src/engine_v0_2",
+  "command": "/usr/bin/g++     -Wall -Wextra -std=c++11 -g3 -gdwarf-2 -I/home/maxwell/projects/include -I/home/maxwell/projects -I/home/maxwell/projects/src/engine_v0_2 -I/home/maxwell/projects/src/engine_v0_2/include    -o CMakeFiles/engine_v0_2.dir/src/RectangularNonPlayer.cpp.o -c /home/maxwell/projects/src/engine_v0_2/src/RectangularNonPlayer.cpp",
+  "file": "/home/maxwell/projects/src/engine_v0_2/src/RectangularNonPlayer.cpp"
+},
+{
+  "directory": "/home/maxwell/projects/src/engine_v0_2",
+  "command": "/usr/bin/g++     -Wall -Wextra -std=c++11 -g3 -gdwarf-2 -I/home/maxwell/projects/include -I/home/maxwell/projects -I/home/maxwell/projects/src/engine_v0_2 -I/home/maxwell/projects/src/engine_v0_2/include    -o CMakeFiles/engine_v0_2.dir/src/Rotation.cpp.o -c /home/maxwell/projects/src/engine_v0_2/src/Rotation.cpp",
+  "file": "/home/maxwell/projects/src/engine_v0_2/src/Rotation.cpp"
+},
+{
+  "directory": "/home/maxwell/projects/src/engine_v0_2",
+  "command": "/usr/bin/g++     -Wall -Wextra -std=c++11 -g3 -gdwarf-2 -I/home/maxwell/projects/include -I/home/maxwell/projects -I/home/maxwell/projects/src/engine_v0_2 -I/home/maxwell/projects/src/engine_v0_2/include    -o CMakeFiles/engine_v0_2.dir/src/Scale.cpp.o -c /home/maxwell/projects/src/engine_v0_2/src/Scale.cpp",
+  "file": "/home/maxwell/projects/src/engine_v0_2/src/Scale.cpp"
+},
+{
+  "directory": "/home/maxwell/projects/src/engine_v0_2",
+  "command": "/usr/bin/g++     -Wall -Wextra -std=c++11 -g3 -gdwarf-2 -I/home/maxwell/projects/include -I/home/maxwell/projects -I/home/maxwell/projects/src/engine_v0_2 -I/home/maxwell/projects/src/engine_v0_2/include    -o CMakeFiles/engine_v0_2.dir/src/Sequence.cpp.o -c /home/maxwell/projects/src/engine_v0_2/src/Sequence.cpp",
+  "file": "/home/maxwell/projects/src/engine_v0_2/src/Sequence.cpp"
+},
+{
+  "directory": "/home/maxwell/projects/src/engine_v0_2",
+  "command": "/usr/bin/g++     -Wall -Wextra -std=c++11 -g3 -gdwarf-2 -I/home/maxwell/projects/include -I/home/maxwell/projects -I/home/maxwell/projects/src/engine_v0_2 -I/home/maxwell/projects/src/engine_v0_2/include    -o CMakeFiles/engine_v0_2.dir/src/TimelineSequence.cpp.o -c /home/maxwell/projects/src/engine_v0_2/src/TimelineSequence.cpp",
+  "file": "/home/maxwell/projects/src/engine_v0_2/src/TimelineSequence.cpp"
+},
+{
+  "directory": "/home/maxwell/projects/src/engine_v0_2",
+  "command": "/usr/bin/g++     -Wall -Wextra -std=c++11 -g3 -gdwarf-2 -I/home/maxwell/projects/include -I/home/maxwell/projects -I/home/maxwell/projects/src/engine_v0_2 -I/home/maxwell/projects/src/engine_v0_2/include    -o CMakeFiles/engine_v0_2.dir/src/SourceSequence.cpp.o -c /home/maxwell/projects/src/engine_v0_2/src/SourceSequence.cpp",
+  "file": "/home/maxwell/projects/src/engine_v0_2/src/SourceSequence.cpp"
+},
+{
+  "directory": "/home/maxwell/projects/src/engine_v0_2",
+  "command": "/usr/bin/g++     -Wall -Wextra -std=c++11 -g3 -gdwarf-2 -I/home/maxwell/projects/include -I/home/maxwell/projects -I/home/maxwell/projects/src/engine_v0_2 -I/home/maxwell/projects/src/engine_v0_2/include    -o CMakeFiles/engine_v0_2.dir/src/SinusoidalTrajectory.cpp.o -c /home/maxwell/projects/src/engine_v0_2/src/SinusoidalTrajectory.cpp",
+  "file": "/home/maxwell/projects/src/engine_v0_2/src/SinusoidalTrajectory.cpp"
+},
+{
+  "directory": "/home/maxwell/projects/src/engine_v0_2",
+  "command": "/usr/bin/g++     -Wall -Wextra -std=c++11 -g3 -gdwarf-2 -I/home/maxwell/projects/include -I/home/maxwell/projects -I/home/maxwell/projects/src/engine_v0_2 -I/home/maxwell/projects/src/engine_v0_2/include    -o CMakeFiles/engine_v0_2.dir/src/StarBackground.cpp.o -c /home/maxwell/projects/src/engine_v0_2/src/StarBackground.cpp",
+  "file": "/home/maxwell/projects/src/engine_v0_2/src/StarBackground.cpp"
+},
+{
+  "directory": "/home/maxwell/projects/src/engine_v0_2",
+  "command": "/usr/bin/g++     -Wall -Wextra -std=c++11 -g3 -gdwarf-2 -I/home/maxwell/projects/include -I/home/maxwell/projects -I/home/maxwell/projects/src/engine_v0_2 -I/home/maxwell/projects/src/engine_v0_2/include    -o CMakeFiles/engine_v0_2.dir/src/Trajectory.cpp.o -c /home/maxwell/projects/src/engine_v0_2/src/Trajectory.cpp",
+  "file": "/home/maxwell/projects/src/engine_v0_2/src/Trajectory.cpp"
+},
+{
+  "directory": "/home/maxwell/projects/src/engine_v0_2",
+  "command": "/usr/bin/g++     -Wall -Wextra -std=c++11 -g3 -gdwarf-2 -I/home/maxwell/projects/include -I/home/maxwell/projects -I/home/maxwell/projects/src/engine_v0_2 -I/home/maxwell/projects/src/engine_v0_2/include    -o CMakeFiles/engine_v0_2.dir/src/Transformation.cpp.o -c /home/maxwell/projects/src/engine_v0_2/src/Transformation.cpp",
+  "file": "/home/maxwell/projects/src/engine_v0_2/src/Transformation.cpp"
+},
+{
+  "directory": "/home/maxwell/projects/src/engine_v0_2",
+  "command": "/usr/bin/g++     -Wall -Wextra -std=c++11 -g3 -gdwarf-2 -I/home/maxwell/projects/include -I/home/maxwell/projects -I/home/maxwell/projects/src/engine_v0_2 -I/home/maxwell/projects/src/engine_v0_2/include    -o CMakeFiles/engine_v0_2.dir/src/MovementController.cpp.o -c /home/maxwell/projects/src/engine_v0_2/src/MovementController.cpp",
+  "file": "/home/maxwell/projects/src/engine_v0_2/src/MovementController.cpp"
+},
+{
+  "directory": "/home/maxwell/projects/src/engine_v0_2",
+  "command": "/usr/bin/g++     -Wall -Wextra -std=c++11 -g3 -gdwarf-2 -I/home/maxwell/projects/include -I/home/maxwell/projects -I/home/maxwell/projects/src/engine_v0_2 -I/home/maxwell/projects/src/engine_v0_2/include    -o CMakeFiles/engine_v0_2.dir/src/KeyboardController.cpp.o -c /home/maxwell/projects/src/engine_v0_2/src/KeyboardController.cpp",
+  "file": "/home/maxwell/projects/src/engine_v0_2/src/KeyboardController.cpp"
+},
+{
+  "directory": "/home/maxwell/projects/src/engine_v0_2",
+  "command": "/usr/bin/g++     -Wall -Wextra -std=c++11 -g3 -gdwarf-2 -I/home/maxwell/projects/include -I/home/maxwell/projects -I/home/maxwell/projects/src/engine_v0_2 -I/home/maxwell/projects/src/engine_v0_2/include    -o CMakeFiles/engine_v0_2.dir/src/JoystickController.cpp.o -c /home/maxwell/projects/src/engine_v0_2/src/JoystickController.cpp",
+  "file": "/home/maxwell/projects/src/engine_v0_2/src/JoystickController.cpp"
+},
+{
+  "directory": "/home/maxwell/projects/src/engine_v0_2",
+  "command": "/usr/bin/g++     -Wall -Wextra -std=c++11 -g3 -gdwarf-2 -I/home/maxwell/projects/include -I/home/maxwell/projects -I/home/maxwell/projects/src/engine_v0_2 -I/home/maxwell/projects/src/engine_v0_2/include    -o CMakeFiles/engine_v0_2.dir/src/Main.cpp.o -c /home/maxwell/projects/src/engine_v0_2/src/Main.cpp",
+  "file": "/home/maxwell/projects/src/engine_v0_2/src/Main.cpp"
+}
+]

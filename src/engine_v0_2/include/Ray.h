@@ -25,12 +25,21 @@ namespace ge {
         
         void transform( const Transformation * transformation );
         
-        //attach ?s
-        // follow ?
+        void attach( const NonPlayer * nonPlayer );
+        void attach( const Player * Player );
+        
+        
+        void follow( const NonPlayer * nonPlayer );
+        void follow( const Player * Player );
         
         
     private:
 
+        union AttachementEntity{
+            NonPlayer * nonPlayer;
+            Player * player;
+        };
+        
         inline void buildRayVertices();
         
         double m_length;
@@ -42,6 +51,9 @@ namespace ge {
         double m_angle;
     
         sf::VertexArray m_vertices;
+        
+        union AttachementEntity m_attachement;
+        union AttachementEntity m_following;
     };
 
 }
